@@ -1,0 +1,17 @@
+{
+  "text_patterns": [
+    "giveaway",
+    "affiliate",
+    "follow me",
+    "フォロー",
+    "副業",
+    "稼ぎ",
+    "アフィリ",
+    "無料プレゼント",
+    "RT &",
+    "プレゼント企画"
+  ],
+  "min_likes": 2,
+  "min_evidence_score": 1,
+  "skip_reply_to_self": true
+}

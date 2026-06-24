@@ -1,0 +1,31 @@
+{
+  "dimensions": {
+    "novelty": {
+      "weight": 5,
+      "description": "Is this a new tool, technique, or use case not seen recently?",
+      "signals": ["新しい", "リリース", "公開", "ベータ", "launch", "released", "new"]
+    },
+    "practicality": {
+      "weight": 5,
+      "description": "Can a PM or builder use this this week?",
+      "signals": ["使える", "試した", "導入", "設定", "手順", "tutorial", "how to", "方法"]
+    },
+    "evidence": {
+      "weight": 5,
+      "description": "Does it link to a demo, repo, product page, or screenshot?",
+      "signals": ["github.com", "youtu.be", "youtube.com", "demo", "スクショ", "動画", "loom.com"]
+    },
+    "relevance": {
+      "weight": 5,
+      "description": "Is this about AI tools, automation, agents, or no-code?",
+      "signals": ["AI", "LLM", "エージェント", "自動化", "ノーコード", "MCP", "RAG"]
+    },
+    "japan_fit": {
+      "weight": 5,
+      "description": "Useful to Japanese market or bilingual PM/builder?",
+      "signals": ["日本語", "JP", "Japan", "和", "ビジネス", "業務", "企業"]
+    }
+  },
+  "threshold": 14,
+  "top_n": 10
+}

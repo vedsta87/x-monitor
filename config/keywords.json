@@ -1,0 +1,35 @@
+{
+  "positive": [
+    "生成AI",
+    "AIツール",
+    "LLM",
+    "MCP",
+    "AIエージェント",
+    "自動化",
+    "ノーコード",
+    "no-code",
+    "RAG",
+    "プロンプト",
+    "SaaS",
+    "業務改善",
+    "AI活用",
+    "Claude",
+    "GPT",
+    "Dify",
+    "Make.com",
+    "n8n",
+    "Zapier",
+    "ワークフロー"
+  ],
+  "negative": [
+    "投資",
+    "炎上",
+    "政治",
+    "求人",
+    "PR依頼",
+    "副業",
+    "稼ぐ",
+    "アフィリエイト"
+  ],
+  "search_query_template": "(生成AI OR AIツール OR LLMツール OR MCPサーバー OR AIエージェント OR ノーコードAI OR AI自動化 OR AI業務改善) lang:ja -is:retweet -is:reply"
+}

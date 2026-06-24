@@ -1,0 +1,22 @@
+{
+  "name": "x-monitor",
+  "version": "1.0.0",
+  "description": "Japanese AI tool discovery via X post monitoring",
+  "scripts": {
+    "collect": "tsx scripts/collect_posts.ts",
+    "score": "tsx scripts/score_posts.ts",
+    "render": "tsx scripts/render_digest.ts",
+    "sync": "tsx scripts/sync_to_notion.ts",
+    "pipeline": "tsx scripts/run_all.ts",
+    "demo": "MOCK_DATA=true tsx scripts/run_all.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0",
+    "@types/node": "^22.0.0"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5"
+  }
+}
