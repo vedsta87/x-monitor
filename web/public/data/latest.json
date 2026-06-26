@@ -1,6 +1,6 @@
 {
   "date": "2026-06-26",
-  "generated_at": "2026-06-26T10:29:14.721Z",
+  "generated_at": "2026-06-26T14:20:29.563Z",
   "is_mock": false,
   "sources": [
     "zenn",
@@ -8,7 +8,7 @@
     "note"
   ],
   "total_scanned": 466,
-  "passed_filter": 300,
+  "passed_filter": 298,
   "posts": [
     {
       "id": "zenn_22ef4a4bc3aec4",
@@ -41,11 +41,11 @@
       ],
       "passed_filter": true,
       "rank": 1,
+      "english_summary": "This article documents a practical workaround for using transcript-based workflows with AI note-taking tools when dealing with restricted-access video sources. It demonstrates how extracting captions and converting them to text enables seamless integration with AI systems that struggle with direct video URLs.",
+      "japanese_summary": "限定公開動画をAIノートツールに直接読み込めない場合に、字幕を抽出してテキスト化する実践的な回避方法を記録した記事です。",
+      "why_it_matters": "This approach solves a common friction point when building AI-powered research and knowledge management workflows—enabling users to leverage video content that has access restrictions while maintaining the efficiency of automated summarization and Q&A capabilities.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "NotebookLMを使っていると、YouTube動画をソースとして扱える便利さに助けられる場面があります。 動画の内容を要約したり、後から質問できる形にできるため、セミナーや勉強会の振り返りに使いやすいです。 ただ、実際に使っていると、次のような場面に当たりました。 セミナーのアーカイブ動画をNotebookLMに入れたいが、限定公開のYouTube動画な",
-      "japanese_summary": "（試行錯誤の記録）限定公開YouTube動画をNotebookLMに渡す「無理のない」運用術",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "qiita_1866487a1a30b788dc80",
@@ -88,11 +88,11 @@
       ],
       "passed_filter": true,
       "rank": 2,
+      "english_summary": "A contract engineer shares their experience using AI tools like Claude and Codex to dramatically improve workflows and reduce server costs at a startup, only to have their contract terminated once the efficiency gains made their position redundant. The article illustrates how AI-driven automation can unexpectedly eliminate the very jobs it was meant to enhance.",
+      "japanese_summary": "エンジニアがAIツールを駆使して業務効率化とコスト削減を実現した結果、皮肉にも自分の仕事が不要になり契約終了になった実体験を語った記事。",
+      "why_it_matters": "This case demonstrates a practical risk for teams adopting AI: automation tools can be so effective at eliminating work that they undermine the role of the person implementing them. It underscores the importance of thinking strategically about job redesign and role evolution when deploying AI, rather than simply optimizing existing tasks away.",
       "platform_label": "Qiita",
-      "platform_color": "#55c500",
-      "english_summary": "AIの台頭によって「エンジニアの仕事が奪われる」という議論が活発に行われています。 多くの人はそれをどこか他人事、あるいは遠い未来の話として捉えているかもしれません。しかし、それは思ったよりも早く、そして意外な形で現実になります。 今回は、あるスタートアップ企業のプロジェクトでAI（Claudeやcodexなど）をフル活用し、劇的な業務効率化とサーバー代のコ",
-      "japanese_summary": "AI使ってゴリゴリに業務改善を進めていったら自分の仕事がなくなって契約完了になったお話し",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#55c500"
     },
     {
       "id": "note_piqcy_n636b0fb8101b",
@@ -125,11 +125,11 @@
       ],
       "passed_filter": true,
       "rank": 3,
+      "english_summary": "This article demonstrates a three-step workflow for efficiently summarizing long English video content about product development using ChatGPT, making it practical for non-native speakers to extract and repurpose knowledge without paid subscriptions.",
+      "japanese_summary": "ChatGPTを活用して、長時間の英語動画コンテンツから効率的に情報を抽出・要約する3ステップのワークフローを紹介する記事。",
+      "why_it_matters": "As AI tools become more capable at content processing, learning how to systematically extract and structure insights from multimedia sources—especially across language barriers—directly improves workflow efficiency for product teams seeking to learn from industry expertise and case studies.",
       "platform_label": "Note",
-      "platform_color": "#41c9b4",
-      "english_summary": "Product School はプロダクト開発に関わる人たちのコミュニティです。 YouTube で Google 、 Amazon 、 Facebook 、 Apple といった世界的な企業や Airbnb や Uber といった先進的なプロダクトで活躍するプロダクトマネージャーのプレゼンテーションやインタビューの動画を公開しており、チャンネル登録者数は ",
-      "japanese_summary": "ChatGPT を使用して Product School の動画から効率的にノウハウを学ぶ手順",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#41c9b4"
     },
     {
       "id": "zenn_52dd66555742c0",
@@ -165,22 +165,22 @@
       ],
       "passed_filter": true,
       "rank": 4,
+      "english_summary": "This article breaks down three practical patterns for integrating AI into existing enterprise systems: leveraging REST APIs through agentic overlays, analyzing operational data with natural language AI agents, and enhancing low-resolution video using AI upscaling. Each pattern demonstrates a different integration approach for adding AI capabilities to legacy infrastructure.",
+      "japanese_summary": "既存システムのREST API、運用データ、映像資産にAIを組み込む3つの実装パターンを整理した記事で、エージェント型AIがこれらの既存資産をいかに再利用できるかを示しています。",
+      "why_it_matters": "These integration patterns are valuable for teams working with legacy systems because they show concrete ways to add AI capabilities without replacing existing infrastructure—REST API reuse reduces integration complexity, natural language analysis unlocks insights from operational logs, and AI enhancement techniques maximize value from existing data assets.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "2026年6月25日にAWSが公開した記事から、既存システムやデータへAIを追加する3つのパターンを整理します。 今回取り上げるのは、次の事例です。 既存資産 AIの追加方法 REST API Agentic OverlayでA2AとMCPへ対応 AWS Healthのイベント MCP対応AIエージェントで自然言語分析 低解像度の映像 SageMaker A",
-      "japanese_summary": "既存システムへAIを組み込む3つのパターン：REST API・運用データ・映像資産",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
-      "id": "zenn_2026-06-25-chip-war-agent-democratization-2026",
+      "id": "zenn_93c9e3ccd659ae",
       "platform": "zenn",
-      "title": "AIの主導権争い、3つの戦線が動いた",
-      "text": "\n AIの主導権争い、3つの戦線が動いた\n2026-06-25 | 読了 4分 | #AIチップ #エージェント #セキュリティ\nOpenAIが独自チップを発表し、AnthropicはAIエージェント構築を「分単位」に縮めた。そしてセキュリティの自動化まで——AI産業の三つの戦線が、同じ週に一気に動いた。\n\n\n OpenAIの「脱NVIDIA」宣言\nOpenAIがBroadcomと共同開発した独自チップ「Jalapeño」を発表した。NVIDIAへの依存から脱却し、推論コストと速度を自社でコントロールできるようになる。GoogleのTPU、AmazonのTrainiumに続き、主要AI企...",
-      "created_at": "Wed, 24 Jun 2026 22:25:17 GMT",
-      "author_id": "lingmu",
-      "author_handle": "lingmu",
-      "author_name": "lingmu",
-      "article_url": "https://zenn.dev/lingmu/articles/2026-06-25-chip-war-agent-democratization-2026",
+      "title": "【個人開発】バズをそのまま漫画や動画の企画に変換する「物語バズメーカー」の実装とAI制作エコシステム",
+      "text": "\n\n 1. プロダクトの概要と開発のモチベーション\nSNSのトレンドを見て「これを題材に何か作れないか」と考えた経験は誰にでもあるはずです。しかし、既存のツールは「何がバズっているか」を教えてくれても、「どう物語に落とし込むか」までは教えてくれません。\nそこで、公開WebやRSSから取得した話題候補を、安全かつ魅力的な「物語の設計図（漫画、ショート動画、小説）」へ自動で変換・出力するアプリ「物語バズメーカー」を開発しました。単なる流行語リストではなく、GMC+S（Goal=目標、Motivation=動機、Conflict=葛藤、Stakes=代償）や感情差分を明確にした企画書を生成しま...",
+      "created_at": "Thu, 25 Jun 2026 14:36:00 GMT",
+      "author_id": "FURU",
+      "author_handle": "FURU",
+      "author_name": "FURU",
+      "article_url": "https://zenn.dev/furuyan1234/articles/93c9e3ccd659ae",
       "metrics": {
         "likes": 0,
         "comments": 0
@@ -190,25 +190,23 @@
       ],
       "scores": {
         "novelty": 5,
-        "practicality": 5,
+        "practicality": 0,
         "evidence": 5,
         "content_value": 5,
-        "japan_fit": 0,
+        "japan_fit": 5,
         "total": 20
       },
       "category": "new_tool",
       "inferred_tags": [
-        "生成ai",
-        "agent",
-        "automation"
+        "生成ai"
       ],
       "passed_filter": true,
       "rank": 5,
+      "english_summary": "A developer built an AI-powered application that automatically converts trending social media topics into narrative-ready creative briefs (manga, short videos, novels) by analyzing story structure frameworks like GMC+S and emotional arcs, rather than just listing what's viral.",
+      "japanese_summary": "SNSのトレンドを自動的に物語設計図（漫画・動画・小説）に変換するAIアプリを開発し、流行語リストではなくGMC+S構造と感情差分を明確にした企画書を生成する仕組みを実装した事例。",
+      "why_it_matters": "This demonstrates a practical pattern for converting unstructured trend data into actionable creative output using AI—showing how to bridge the gap between content discovery and content production. It's useful for anyone building AI workflows that need to transform raw input into structured, production-ready formats with narrative logic.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "AIの主導権争い、3つの戦線が動いた 2026-06-25 | 読了 4分 | #AIチップ #エージェント #セキュリティ OpenAIが独自チップを発表し、AnthropicはAIエージェント構築を「分単位」に縮めた。そしてセキュリティの自動化まで——AI産業の三つの戦線が、同じ週に一気に動いた。 OpenAIの「脱NVIDIA」宣言 OpenAIがBr",
-      "japanese_summary": "AIの主導権争い、3つの戦線が動いた",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_20260626-agentic-search-no-index",
@@ -245,51 +243,50 @@
       ],
       "passed_filter": true,
       "rank": 6,
+      "english_summary": "This article explores abandoning traditional vector RAG systems in favor of agentic search without pre-built indexes, implementing it in Python and comparing its accuracy and costs against vector-based RAG. The author addresses common pain points like continuous re-embedding, index maintenance overhead, and staleness issues that arise from vector database operations.",
+      "japanese_summary": "ベクトルRAGの運用負債（再embedの繰り返し、インデックス管理、stalnessの問題）を解決するため、インデックスを持たないagentic searchをPythonで実装し、従来のベクトルRAGと精度・コストを比較する方法を提案する記事。",
+      "why_it_matters": "Teams maintaining RAG systems often face escalating infrastructure costs and staleness problems as documents update frequently. This approach offers a practical alternative that reduces operational complexity and may lower costs while maintaining or improving search accuracy, making it valuable for anyone weighing tradeoffs between index-based and dynamic search strategies.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "「RAGを組んだものの、ドキュメントを更新するたびに再embedが走り、インデックスの保守が止まらない」 「ベクトルDBを運用に乗せた途端、staleness（インデックスと実体のズレ）の管理が新しい負債になった」 こうした状態に心当たりがある方は少なくありません。ベクトルRAGは検索の定番として定着しましたが、その代償として「embeddingモデル・ベク",
-      "japanese_summary": "RAGを捨てる：インデックスを作らないagentic searchをPythonで実装し、ベクトルRAGと精度・コストを比較する",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
-      "id": "zenn_c961141dd4c9c8",
+      "id": "zenn_2026-06-25-chip-war-agent-democratization-2026",
       "platform": "zenn",
-      "title": "「AIがSQLを書いてくれる」で終わらせない − 分析基盤の育て方",
-      "text": "トリビューでCTOをしている小尾（@obiyuta）です。\n弊社ではAIを前提とした全社業務の再構築に取り組んでおり、前回はその中で取り組んでいる社内MCPを載せる共通基盤（認証・認可・ログ）をご紹介しました。\n今回は具体的な活用事例として、非エンジニアが自分で本番データを分析できるような分析基盤と、作って終わらない改善ループをどう構築、運用しているかご紹介します。\n\n 「SQLが書ける」と「正しく答えられる」は違う\n分析基盤そのものは特殊なものではなく、ClaudeやNotion AIなどから自然言語で問いを投げると、SQLを組み立てて、BigQueryで実行して結果を返すという、至っ...",
-      "created_at": "Wed, 24 Jun 2026 09:20:35 GMT",
-      "author_id": "obiyuta",
-      "author_handle": "obiyuta",
-      "author_name": "obiyuta",
-      "article_url": "https://zenn.dev/tribeau/articles/c961141dd4c9c8",
+      "title": "AIの主導権争い、3つの戦線が動いた",
+      "text": "\n AIの主導権争い、3つの戦線が動いた\n2026-06-25 | 読了 4分 | #AIチップ #エージェント #セキュリティ\nOpenAIが独自チップを発表し、AnthropicはAIエージェント構築を「分単位」に縮めた。そしてセキュリティの自動化まで——AI産業の三つの戦線が、同じ週に一気に動いた。\n\n\n OpenAIの「脱NVIDIA」宣言\nOpenAIがBroadcomと共同開発した独自チップ「Jalapeño」を発表した。NVIDIAへの依存から脱却し、推論コストと速度を自社でコントロールできるようになる。GoogleのTPU、AmazonのTrainiumに続き、主要AI企...",
+      "created_at": "Wed, 24 Jun 2026 22:25:17 GMT",
+      "author_id": "lingmu",
+      "author_handle": "lingmu",
+      "author_name": "lingmu",
+      "article_url": "https://zenn.dev/lingmu/articles/2026-06-25-chip-war-agent-democratization-2026",
       "metrics": {
         "likes": 0,
         "comments": 0
       },
       "tags": [
-        "mcp"
+        "aiagent"
       ],
       "scores": {
-        "novelty": 0,
+        "novelty": 5,
         "practicality": 5,
         "evidence": 5,
         "content_value": 5,
-        "japan_fit": 5,
+        "japan_fit": 0,
         "total": 20
       },
-      "category": "workflow_demo",
+      "category": "new_tool",
       "inferred_tags": [
-        "mcp",
-        "MCP",
-        "Claude",
-        "Notion"
+        "aiagent",
+        "agent",
+        "automation"
       ],
       "passed_filter": true,
       "rank": 7,
+      "english_summary": "Three major developments in AI competition occurred simultaneously: a major AI company unveiled a custom chip to reduce reliance on NVIDIA, another company accelerated AI agent construction timelines to minute-level speeds, and automated security solutions emerged. This article examines how these parallel advances represent distinct competitive battlegrounds in the AI industry.",
+      "japanese_summary": "AIプロダクト企業が独自チップを発表してGPUベンダーへの依存を減らし、エージェント構築の時間短縮とセキュリティ自動化が同週に進展した、AI産業の三つの競争領域での動きを解説する記事。",
+      "why_it_matters": "Understanding these three concurrent shifts—custom silicon, faster agent workflows, and automated security—helps teams anticipate which infrastructure and tooling investments will become critical for competitive AI product development. Knowing which battlegrounds are heating up informs strategic decisions about build-versus-buy and vendor dependencies.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "トリビューでCTOをしている小尾（@obiyuta）です。 弊社ではAIを前提とした全社業務の再構築に取り組んでおり、前回はその中で取り組んでいる社内MCPを載せる共通基盤（認証・認可・ログ）をご紹介しました。 今回は具体的な活用事例として、非エンジニアが自分で本番データを分析できるような分析基盤と、作って終わらない改善ループをどう構築、運用しているかご紹介",
-      "japanese_summary": "「AIがSQLを書いてくれる」で終わらせない − 分析基盤の育て方",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_dify-practical-guide",
@@ -323,11 +320,11 @@
       ],
       "passed_filter": true,
       "rank": 8,
+      "english_summary": "A practical guide to implementing and operating an open-source LLM application framework, covering self-hosted deployment on WSL+Docker, cloud AI service integration, data processing with Python libraries, workflow node type handling, operational troubleshooting, and pre-production security configuration. The article focuses on undocumented implementation challenges and real-world solutions.",
+      "japanese_summary": "セルフホスト構築からクラウドAI連携、Pythonライブラリ実行、Workflowノード設定、本番運用までの実装ステップを、公式ドキュメントに書かれていない詰まりどころと解決策を中心に解説したガイド。",
+      "why_it_matters": "Developers building custom AI workflows need practical solutions for common deployment and integration issues that official documentation often overlooks. This guide accelerates time-to-production by providing real-world troubleshooting steps for infrastructure setup, API connectivity, data processing, and security hardening—critical steps before launching AI products in production environments.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "WSL+Dockerでのセルフホスト構築からAzure OpenAI連携、Codeノードでのpandas/numpy実行、Workflowノードの型問題、運用トラブルシューティング、本番公開前のセキュリティ設定まで。公式ドキュメントに書かれていない詰まりどころを実践ベースで解説します。",
-      "japanese_summary": "Dify実践運用ガイド: 公式ドキュメントに書かれていない詰まりどころと解決策",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_3c76287bf103ce",
@@ -362,11 +359,11 @@
       ],
       "passed_filter": true,
       "rank": 9,
+      "english_summary": "A manufacturing engineer compares ChatGPT, DeepL, and Claude over three months of real-world use for technical document translation, international standards reading, and supplier communication. The article evaluates each tool's practical effectiveness for engineering workflows requiring precision in technical terminology.",
+      "japanese_summary": "製造業エンジニアがChatGPT、DeepL、Claudeを3ヶ月間の実務で比較検証し、技術文書翻訳や海外規格対応での各ツールの使い分けポイントを明らかにした実践レポート。",
+      "why_it_matters": "For teams building AI translation or document processing workflows, this provides concrete performance data on how different LLMs and specialized translation tools handle technical domain content, helping product teams choose or combine tools based on accuracy requirements and use-case specificity.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "title: \"製造業エンジニアがChatGPT・DeepL・Claudeを3ヶ月実務で使い比べた結果\" emoji: \"🛠️\" type: \"tech\" topics: [\"chatgpt\", \"deepl\", \"claude\", \"翻訳\", \"AI活用\"] published: true はじめに 技術文書の英訳、海外規格の読み込み、海外サプライヤーと",
-      "japanese_summary": "製造業エンジニアがChatGPT・DeepL・Claudeを3ヶ月実務で使い比べた結果",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_flask-resale-management-solo",
@@ -399,11 +396,11 @@
       ],
       "passed_filter": true,
       "rank": 10,
+      "english_summary": "A developer built a Flask-based inventory and order management system that automates resale business workflows including product listing, price adjustments, orders, and customer support using AI/LLM integration. The article details the system architecture using Flask's App Factory pattern with six modular blueprints.",
+      "japanese_summary": "フラスコを使った物販管理システムの設計と実装を解説した記事で、AI/LLMを活用して出品・価格調整・発注・顧客対応などの業務を自動化する方法を紹介している。",
+      "why_it_matters": "This demonstrates practical patterns for integrating LLMs into business automation workflows and shows how modular Flask architecture scales for handling multiple business processes—valuable lessons for anyone building AI-enhanced SaaS or workflow automation tools.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "はじめに BUYMA（バイマ）とBuyandshipを利用した転売ビジネス。出品・価格調整・発注・顧客対応……全て手作業だと1日が終わりません。 私はこの一連の業務を Flask Webアプリ + AI/LLM で自動化するシステムを1人で作りました。 本記事では、この atelier-kyo-manager の設計と実装を解説します。 システム概要 ate",
-      "japanese_summary": "Flask物販管理システムを1人で作った話（BUYMA × Buyandship）",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_74655ccf184937",
@@ -439,11 +436,11 @@
       ],
       "passed_filter": true,
       "rank": 11,
+      "english_summary": "This article explains how to implement AI-powered code review at scale using Claude Code integrated into GitHub Actions CI/CD pipelines, addressing consistency, security, and bottleneck challenges when teams transition from individual AI tool usage to standardized automated workflows.",
+      "japanese_summary": "Claude CodeをGitHub Actionsに組み込んでチーム全体でAIコードレビューを安全かつ統一的に運用する方法を、セキュリティとプロンプトインジェクション対策を含めて解説している。",
+      "why_it_matters": "Teams scaling AI-assisted development need patterns for moving beyond individual tool adoption to secure, policy-compliant automation—this demonstrates how to reduce review bottlenecks while maintaining code quality standards and preventing credential exposure in CI environments.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "はじめに：なぜ今、チームでのAIコードレビューなのか 「メンバーが各自バラバラに Claude Code を使い始めたが、レビュー基準が人によって違い、品質がばらつく」 「Pull Request は増える一方で、人手のレビューが追いつかず、マージ待ちが慢性化している」 「AI を CI（自動化パイプライン）に組み込みたいが、APIキーの漏洩やプロンプトイン",
-      "japanese_summary": "Claude Code GitHub Actionsでレビュー工数を削減した話〜情シス・開発リーダーのためのチーム導入とセキュアCI設計〜",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_b73421749287b5",
@@ -477,11 +474,11 @@
       ],
       "passed_filter": true,
       "rank": 12,
+      "english_summary": "This article presents a lightweight microservices architecture for ensuring AI systems always reference the latest product specifications without relying on heavy tools like MCP or Git submodules. It uses a two-skill approach: a gating skill that determines whether spec references are needed, and a reference skill that maintains a read-only mirror of the spec repository.",
+      "japanese_summary": "AIが常に最新の仕様を参照するため、索引Markdown と役割の異なる2つのskillを組み合わせた軽量なマイクロサービスアーキテクチャを提案している。",
+      "why_it_matters": "This pattern prevents AI from providing outdated or speculative answers by enforcing a clear decision gate before spec lookups and maintaining a synchronized, read-only reference source—a practical solution for teams managing product specifications in separate repositories who want reliable AI assistance without complex synchronization overhead.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "AIに必ず最新の仕様を参照させる ── 役割の違う2つのskillで「推測で答える」をなくす 結論 プロダクトの仕様（spec）を別リポジトリにMarkdownで持っているなら、MCPやsubmoduleのような重い仕組みは要らない。「索引Markdown + skill」で十分まわせる カギは skillを役割で2つに分けること 判定ゲートskill（us",
-      "japanese_summary": "マイクロサービスでAIに必ず最新の仕様を参照させる方法を作った",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_f2dec475c3576f",
@@ -514,11 +511,11 @@
       ],
       "passed_filter": true,
       "rank": 13,
+      "english_summary": "A Customer Reliability Engineer reflects on their first onboarding experience in 7 years at a family photo-sharing service, highlighting how AI tools and remote work practices have transformed modern employee onboarding processes and team workflows.",
+      "japanese_summary": "カスタマーリライアビリティエンジニアが7年ぶりのオンボーディング経験を通じて、生成AIやリモートワークの普及がもたらした業務プロセスの変化と、チームの効果的な取り組みについて考察している。",
+      "why_it_matters": "This demonstrates practical patterns for integrating AI tools into employee onboarding and knowledge transfer workflows, offering concrete insights into how modern teams can improve efficiency and documentation when bringing new members up to speed in remote-first environments.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "はじめに こんにちは。「家族アルバム みてね」（以下 みてね）で、CRE（Customer Reliability Engineering）をしている hikari です。 前職でも同じくtoCのサービスでCREをやっていましたが2026/2よりみてねで働いており、久しぶりにオンボーディングを受ける側に立ちました。 期間で言うと7年ぶりくらいになりますがこの",
-      "japanese_summary": "7年ぶりにオンボーディングを受けて良かったみてねCREの取り組み",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "zenn_backlog-to-linear-migration",
@@ -551,11 +548,11 @@
       ],
       "passed_filter": true,
       "rank": 14,
+      "english_summary": "A junior engineer (3 years experience) shares lessons learned from leading a company-wide migration from one task management tool to another, addressing key challenges like cost justification, stakeholder resistance, and minimizing workflow disruption during the transition.",
+      "japanese_summary": "3年目のエンジニアが、タスク管理ツールの全社移行プロジェクトをリードした経験から、ツール選定の理由付けや組織的な反発への対応、業務効率維持のポイントを共有する記事。",
+      "why_it_matters": "For product teams and workflow designers, this article provides practical strategies for managing large-scale tool adoption—including how to build buy-in across technical and non-technical stakeholders, measure ROI against established alternatives, and execute transitions that minimize disruption to daily operations.",
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff",
-      "english_summary": "こんにちは、mayaです！ 今回はラッコ株式会社のタスク管理ツールを、BacklogからLinearに全社移行した話をします。 私は経験3年のエンジニアで、このような影響範囲の大きいプロジェクトをリードするのは初めてでした。 さまざまな悩みにぶち当たりながら進めたので、同じような立場の方の参考になれば嬉しいです！ なぜBacklogじゃだめなの？Linear",
-      "japanese_summary": "経験3年のエンジニアが「タスク管理ツール」の全社移行に挑戦した話",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#3ea8ff"
     },
     {
       "id": "qiita_8e43493e2131e29709bb",
@@ -596,11 +593,11 @@
       ],
       "passed_filter": true,
       "rank": 15,
+      "english_summary": "This article is the third installment in a series on using AI (Vibe Coding) to develop a 2D game without programming experience. It focuses on practical defense strategies against debugging pitfalls and project collapse, specifically covering error resolution workflows and Git-based version control as essential safeguards for completing game development projects.",
+      "japanese_summary": "プログラミング未経験者がAIを使ってゲーム開発する際に、デバッグの問題とプロジェクト管理の課題に対処するためのGitとバージョン管理を活用した実践的防衛策を解説する記事。",
+      "why_it_matters": "Anyone leveraging AI for code generation needs robust debugging and version control practices to prevent project failure; this article provides concrete workflows for managing the inevitable errors that arise from AI-assisted development and protecting work through proper source control, making it directly applicable to scaling AI-assisted development beyond simple prototypes.",
       "platform_label": "Qiita",
-      "platform_color": "#55c500",
-      "english_summary": "> **【執筆の経緯：なぜこの記事を書いたのか】** > 本ブログシリーズ（全3回）は、プログラミング完全未経験の筆者が、これから「2Dゲーム」をVibe Codingで実際に開発するにあたり、**迷走やプロジェクト崩壊を防ぐための事前準備として、AIと徹底的にディスカッションして知識をマッピングした実践記録**です。 > 第3回では、どれほど完璧に指示を出",
-      "japanese_summary": "第3回【防衛編】AIの暴走からプロジェクトを守る！Gitとデバッグの絶対防衛策",
-      "why_it_matters": "High-signal content from the Japanese AI developer community."
+      "platform_color": "#55c500"
     },
     {
       "id": "qiita_615ef6d15aef2f661023",
@@ -750,7 +747,7 @@
       "author_name": "Sho Katayama",
       "article_url": "https://qiita.com/Katayama_Studio/items/cd7356d1643cc1a0997c",
       "metrics": {
-        "likes": 0
+        "likes": 1
       },
       "tags": [
         "copilot",
@@ -931,7 +928,7 @@
       "author_name": "",
       "article_url": "https://qiita.com/futayubi5656/items/b2509dff8c9cc08e12f6",
       "metrics": {
-        "likes": 1
+        "likes": 2
       },
       "tags": [
         "テスト",
