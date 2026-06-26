@@ -3,7 +3,9 @@
   "watchlist_zenn": [],
   "note_creators": [
     { "username": "masuidrive", "name": "Masuidrive", "notes": "AI engineering and LLM practice — 25+ articles, active" },
-    { "username": "ai_product_lab", "name": "AI Product Lab", "notes": "AI product launches Japan — active" }
+    { "username": "ai_product_lab", "name": "AI Product Lab", "notes": "AI product launches Japan — active" },
+    { "username": "piqcy", "name": "piqcy", "notes": "AI strategy and generative AI insights — opinion/analysis, 25+ articles, active" },
+    { "username": "karaage_ai", "name": "からあげ", "notes": "Non-engineer practical AI use cases (ChatGPT for non-programmers angle)" }
   ],
   "_note_dead": [
     "ttj — RSS exists but no articles",
