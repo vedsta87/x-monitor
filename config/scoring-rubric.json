@@ -4,40 +4,60 @@
     "novelty": {
       "weight": 5,
       "label": "New tools & product launches",
-      "description": "Is this a new tool, OSS release, or product launch worth tracking?",
-      "signals": ["リリース", "公開", "ベータ", "beta", "launch", "新機能", "v1", "v0.", "OSS", "open source", "オープンソース", "発表", "新しい"]
+      "description": "New tools, OSS releases, product launches, and major feature drops",
+      "signals": ["リリース", "公開", "ベータ", "beta", "launch", "新機能", "v1", "v0.", "OSS", "open source", "オープンソース", "発表", "新しい", "アップデート", "update"]
     },
     "practicality": {
       "weight": 5,
-      "label": "Use cases & implementation",
-      "description": "Real implementations, step-by-step workflows, adoption stories — things someone can act on",
-      "signals": ["使い方", "実装", "構築", "作った", "ガイド", "tutorial", "how to", "手順", "業務改善", "導入事例", "活用事例", "自動化", "ワークフロー", "workflow"]
+      "label": "Practical use cases & real-world applications",
+      "description": "Business use cases, meeting tools, workflow automation, things someone can actually do — not pure engineering research",
+      "signals": [
+        "使い方", "活用", "ユースケース", "事例", "導入", "業務改善", "業務効率", "自動化",
+        "議事録", "会議", "文字起こし", "音声", "ローカル",
+        "ガイド", "入門", "初心者", "わかりやすい", "はじめて",
+        "ビジネス", "企業", "中小企業", "非エンジニア",
+        "tutorial", "how to", "workflow", "guide", "use case", "step by step"
+      ]
     },
     "evidence": {
       "weight": 5,
-      "label": "Evidence & measurable results",
-      "description": "Demos, benchmarks, ROI numbers, GitHub repos, screenshots — not just theory",
-      "signals": ["github.com", "youtu.be", "youtube.com", "demo", "実測", "精度", "削減", "ROI", "効果", "ケース", "スクリーンショット", "動画", "loom.com", "zenn.dev", "qiita.com"]
+      "label": "Evidence & results",
+      "description": "Demos, working repos, ROI numbers, before/after results — not just theory",
+      "signals": [
+        "github.com", "youtu.be", "youtube.com", "demo", "loom.com",
+        "削減", "ROI", "効果", "時間短縮", "コスト", "生産性",
+        "動画", "スクリーンショット", "実際に", "試した", "作った", "構築"
+      ]
     },
     "content_value": {
       "weight": 5,
       "label": "Writing & insight value",
-      "description": "Learnings, opinions, comparisons, surveys — things worth writing about for a blog or newsletter",
-      "signals": ["まとめ", "考察", "比較", "調査", "アンケート", "学び", "report", "opinion", "insight", "解説", "分析", "レポート", "振り返り", "所感"]
+      "description": "Opinions, learnings, surveys, comparisons, explainers — things worth reading and writing about",
+      "signals": [
+        "まとめ", "考察", "比較", "調査", "アンケート", "学び", "振り返り", "所感",
+        "解説", "分析", "レポート", "insight", "opinion", "report",
+        "安全", "セキュリティ", "詐欺", "リスク", "倫理", "規制",
+        "AI活用", "AI導入", "トレンド", "未来", "展望"
+      ]
     },
     "japan_fit": {
       "weight": 5,
       "label": "Japan market specifics",
-      "description": "JP-only tools, enterprise/SMB Japan adoption, Japanese-language AI, culturally specific use cases",
-      "signals": ["日本語", "日本企業", "中小企業", "SMB", "製造業", "業務", "国内", "エンタープライズ", "日本市場", "JP", "和製", "邦人", "外資系", "大企業"]
+      "description": "Japan-only tools, enterprise/SMB Japan adoption, Japanese-language AI, culturally specific use cases",
+      "signals": [
+        "日本語", "日本企業", "中小企業", "製造業", "業務", "国内",
+        "エンタープライズ", "日本市場", "和製", "外資系", "大企業",
+        "スタートアップ", "SaaS", "B2B", "プロダクト"
+      ]
     }
   },
-  "threshold": 14,
-  "top_n": 10,
+  "threshold": 10,
+  "top_n": 30,
   "_tuning_notes": [
-    "Lower threshold to 10 to see more results. Raise to 18+ for top-tier only.",
-    "Add signals to content_value if you want more blog-worthy content.",
-    "Add signals to japan_fit to weight JP enterprise adoption more heavily.",
-    "All scoring is keyword-based (binary). Semantic scoring requires the Claude API summarize step."
+    "Threshold 10/25 = any 2 dimensions hit. Raise to 15 to tighten. Lower to 5 to see everything.",
+    "top_n controls how many posts appear in the digest and on the website.",
+    "Add to practicality signals to catch more non-engineer use-case content.",
+    "Add to content_value signals to catch more blog/newsletter-worthy analysis.",
+    "All scoring is keyword-based (binary per dimension). Semantic scoring requires Claude API summarize step."
   ]
 }

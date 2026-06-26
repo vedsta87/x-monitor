@@ -37,7 +37,10 @@ function extractExternalUrl(text: string): string | undefined {
 // ─── Zenn ────────────────────────────────────────────────────────────────────
 
 async function fetchZenn(): Promise<RawPost[]> {
-  const topics = ["生成ai", "llm", "aiagent", "mcp", "rag", "dify", "langchain"];
+  const topics = [
+    "生成ai", "llm", "aiagent", "mcp", "rag", "dify", "langchain",
+    "chatgpt", "claude", "copilot", "automation", "業務効率化", "ai活用",
+  ];
   // Zenn serves RSS 2.0 (not Atom), so we parse rss.channel.item
   const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_", cdataPropName: "__cdata" });
   const posts: RawPost[] = [];
@@ -97,7 +100,10 @@ async function fetchZenn(): Promise<RawPost[]> {
 // ─── Qiita ───────────────────────────────────────────────────────────────────
 
 async function fetchQiita(): Promise<RawPost[]> {
-  const searchTerms = ["生成AI", "LLM", "AIエージェント", "MCP", "RAG", "Dify", "n8n"];
+  const searchTerms = [
+    "生成AI", "LLM", "AIエージェント", "MCP", "RAG", "Dify", "n8n",
+    "ChatGPT活用", "AI活用", "ノーコード", "議事録AI", "業務改善AI",
+  ];
   const posts: RawPost[] = [];
   const seen = new Set<string>();
   const headers: Record<string, string> = { "User-Agent": "x-monitor/1.0" };
@@ -105,7 +111,7 @@ async function fetchQiita(): Promise<RawPost[]> {
 
   for (const term of searchTerms) {
     try {
-      const params = new URLSearchParams({ query: `tag:${term}`, per_page: "15", sort: "created" });
+      const params = new URLSearchParams({ query: `tag:${term}`, per_page: "20", sort: "created" });
       const res = await fetch(`https://qiita.com/api/v2/items?${params}`, {
         headers,
         signal: AbortSignal.timeout(10_000),

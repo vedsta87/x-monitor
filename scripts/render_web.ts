@@ -44,7 +44,7 @@ async function main() {
   );
 
   const passed = posts.filter((p) => p.passed_filter);
-  const top = passed.slice(0, 10);
+  const top = passed.slice(0, 30);
   const sources = [...new Set(passed.map((p) => p.platform))] as Platform[];
 
   const webPosts: WebPost[] = top.map((p, i) => {
