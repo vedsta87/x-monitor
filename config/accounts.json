@@ -2,12 +2,15 @@
   "watchlist_qiita": [],
   "watchlist_zenn": [],
   "note_creators": [
-    { "username": "ttj", "name": "TTJ", "notes": "AI tools and automation in Japanese business" },
-    { "username": "kazuhito", "name": "Kazuhito", "notes": "AI productivity and tools" },
-    { "username": "masuidrive", "name": "Masuidrive", "notes": "AI engineering and LLM practice" },
-    { "username": "ai_product_lab", "name": "AI Product Lab", "notes": "AI product launches Japan" },
-    { "username": "shota7180", "name": "Shota", "notes": "Practical AI tool demos" },
-    { "username": "yuyakobayashi_ai", "name": "Yuya Kobayashi", "notes": "LLM/agent implementation" }
+    { "username": "masuidrive", "name": "Masuidrive", "notes": "AI engineering and LLM practice — 25+ articles, active" },
+    { "username": "ai_product_lab", "name": "AI Product Lab", "notes": "AI product launches Japan — active" }
   ],
+  "_note_dead": [
+    "ttj — RSS exists but no articles",
+    "kazuhito — RSS exists but no articles",
+    "shota7180 — RSS exists but no articles",
+    "yuyakobayashi_ai — 404"
+  ],
+  "_add_more": "To add a Note.com creator: verify https://note.com/{username}/rss returns <item> tags, then add to note_creators",
   "note_rss_format": "https://note.com/{username}/rss"
 }
