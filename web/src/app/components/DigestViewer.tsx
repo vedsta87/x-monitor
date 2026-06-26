@@ -25,7 +25,17 @@ export default function DigestViewer({ digest }: { digest: WebDigest }) {
   const [selected, setSelected] = useState<WebPost>(digest.posts[0]);
   const [sortBy, setSortBy] = useState<SortMode>("score");
   const [filterMode, setFilterMode] = useState<FilterMode>("all");
+  const [platformFilter, setPlatformFilter] = useState<string>("all");
   const [bookmarks, setBookmarks] = useState<Set<string>>(new Set());
+
+  const platformCounts = digest.posts.reduce<Record<string, number>>((acc, p) => {
+    acc[p.platform] = (acc[p.platform] ?? 0) + 1;
+    return acc;
+  }, {});
+  const platformColors = digest.posts.reduce<Record<string, string>>((acc, p) => {
+    if (!acc[p.platform]) acc[p.platform] = p.platform_color;
+    return acc;
+  }, {});
 
   // Load bookmarks from localStorage on mount
   useEffect(() => {
@@ -51,7 +61,9 @@ export default function DigestViewer({ digest }: { digest: WebDigest }) {
       : a.rank - b.rank
   );
 
-  const visible = filterMode === "saved" ? sorted.filter((p) => bookmarks.has(p.id)) : sorted;
+  const visible = sorted
+    .filter((p) => filterMode === "saved" ? bookmarks.has(p.id) : true)
+    .filter((p) => platformFilter === "all" ? true : p.platform === platformFilter);
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
@@ -117,45 +129,77 @@ export default function DigestViewer({ digest }: { digest: WebDigest }) {
         <aside className="w-full sm:w-[42%] lg:w-[38%] flex-none flex flex-col overflow-hidden border-r border-gray-200 bg-white">
 
           {/* Feed controls */}
-          <div className="flex-none flex items-center justify-between px-3 py-2 border-b border-gray-100 bg-gray-50">
-            {/* Filter tabs */}
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => setFilterMode("all")}
-                className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
-                  filterMode === "all" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
-                }`}
-              >
-                All {digest.posts.length}
-              </button>
-              <button
-                onClick={() => setFilterMode("saved")}
-                className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
-                  filterMode === "saved" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
-                }`}
-              >
-                ❤️ Saved {bookmarks.size > 0 ? bookmarks.size : ""}
-              </button>
+          <div className="flex-none border-b border-gray-100 bg-gray-50">
+            {/* Row 1: bookmark filter + sort */}
+            <div className="flex items-center justify-between px-3 py-2">
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setFilterMode("all")}
+                  className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
+                    filterMode === "all" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
+                  }`}
+                >
+                  All {digest.posts.length}
+                </button>
+                <button
+                  onClick={() => setFilterMode("saved")}
+                  className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
+                    filterMode === "saved" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
+                  }`}
+                >
+                  ❤️ Saved {bookmarks.size > 0 ? bookmarks.size : ""}
+                </button>
+              </div>
+              <div className="flex items-center gap-0.5 bg-gray-100 rounded-full p-0.5">
+                <button
+                  onClick={() => setSortBy("score")}
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
+                    sortBy === "score" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                  }`}
+                >
+                  Score
+                </button>
+                <button
+                  onClick={() => setSortBy("date")}
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
+                    sortBy === "date" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                  }`}
+                >
+                  Newest
+                </button>
+              </div>
             </div>
-
-            {/* Sort toggle */}
-            <div className="flex items-center gap-0.5 bg-gray-100 rounded-full p-0.5">
+            {/* Row 2: platform filter chips */}
+            <div className="flex items-center gap-1 px-3 pb-2">
               <button
-                onClick={() => setSortBy("score")}
-                className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
-                  sortBy === "score" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                onClick={() => setPlatformFilter("all")}
+                className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors border ${
+                  platformFilter === "all"
+                    ? "bg-gray-700 text-white border-gray-700"
+                    : "text-gray-400 border-gray-200 hover:text-gray-600"
                 }`}
               >
-                Score
+                All sources
               </button>
-              <button
-                onClick={() => setSortBy("date")}
-                className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
-                  sortBy === "date" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
-                }`}
-              >
-                Newest
-              </button>
+              {digest.sources.map((s) => {
+                const isActive = platformFilter === s;
+                const color = platformColors[s] ?? "#888";
+                const count = platformCounts[s] ?? 0;
+                return (
+                  <button
+                    key={s}
+                    onClick={() => setPlatformFilter(isActive ? "all" : s)}
+                    className="text-[10px] px-2 py-0.5 rounded-full font-medium transition-all border capitalize"
+                    style={
+                      isActive
+                        ? { backgroundColor: color, color: "#fff", borderColor: color }
+                        : { color: color, borderColor: `${color}55`, backgroundColor: `${color}10` }
+                    }
+                  >
+                    {s} {count}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
