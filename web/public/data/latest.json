@@ -1,59 +1,14 @@
 {
   "date": "2026-06-26",
-  "generated_at": "2026-06-26T09:32:58.106Z",
+  "generated_at": "2026-06-26T10:27:09.048Z",
   "is_mock": false,
   "sources": [
-    "qiita",
-    "zenn"
+    "zenn",
+    "qiita"
   ],
   "total_scanned": 224,
-  "passed_filter": 44,
+  "passed_filter": 136,
   "posts": [
-    {
-      "id": "qiita_b07497034870b453a46b",
-      "platform": "qiita",
-      "title": "faster-whisper + Ollama でローカル議事録パイプラインを作った——VAD・セグメントフィルタ・タイムアウト処理まで",
-      "text": "![ヒーロー画像](https://cdn-ak.f.st-hatena.com/images/fotolife/a/amanity/20260626/20260626120615.jpg)\n\n## TL;DR\n\n- 会議録音ファイル（MP3/WAV/M4A）を入力すると、書き起こし〜議事録 Markdown 生成まで自動処理するパイプラインを作りました\n- コアコンポーネントは **faster-whisper**（音声書き起こし）と **Ollama**（ローカル LLM による議事録生成）の 2 本立てで、データがマシン外に出ません\n- 本番運用で踏んだ主な落とし穴は「長い音声でのメモリ圧迫」「相槌・断片発話のノイズ混入」「固有名詞の誤認識」「Ollama のタイムアウト」の 4 つです\n- この記事のコードはそのままコピーして使えます（`pip install faster-whisper ollama` の後に動作確認済み）\n- 導入背景・ビジネス上の意義・モデル比較の詳細は本家記事を参照してください: https://amanity.co.jp/news/whisper-o",
-      "created_at": "2026-06-26T11:56:00+09:00",
-      "author_id": "amanity-haray",
-      "author_handle": "amanity-haray",
-      "author_name": "",
-      "article_url": "https://qiita.com/amanity-haray/items/b07497034870b453a46b",
-      "source_url": "https://github.com/snakers4/silero-vad",
-      "metrics": {
-        "likes": 0
-      },
-      "tags": [
-        "Python",
-        "音声処理",
-        "LLM",
-        "faster-whisper",
-        "ollama"
-      ],
-      "scores": {
-        "novelty": 5,
-        "practicality": 5,
-        "evidence": 5,
-        "japan_fit": 5,
-        "total": 25,
-        "content_value": 5
-      },
-      "category": "workflow_demo",
-      "inferred_tags": [
-        "Python",
-        "音声処理",
-        "LLM",
-        "faster-whisper",
-        "ollama"
-      ],
-      "passed_filter": true,
-      "rank": 1,
-      "english_summary": "Fully local meeting transcription-to-minutes pipeline using faster-whisper for audio transcription and Ollama (local LLM) for summarization — covering VAD, segment filtering, and timeout handling end-to-end.",
-      "japanese_summary": "faster-whisper+Ollamaで録音ファイルから議事録Markdownを自動生成するローカル完結パイプライン。",
-      "why_it_matters": "No API costs, no data leaves the org — directly pitchable to Japanese enterprise clients who cannot send audio to cloud APIs for compliance reasons.",
-      "platform_label": "Qiita",
-      "platform_color": "#55c500"
-    },
     {
       "id": "zenn_52dd66555742c0",
       "platform": "zenn",
@@ -75,9 +30,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
+        "content_value": 5,
         "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -87,23 +42,103 @@
         "agent"
       ],
       "passed_filter": true,
-      "rank": 2,
-      "english_summary": "AWS framework for adding AI to existing systems via three patterns: Agentic Overlay on REST APIs (A2A/MCP), MCP-enabled agents for AWS Health event analysis, and SageMaker video upscaling.",
-      "japanese_summary": "既存REST API・運用データ・映像資産へAIを追加するAWSの3パターン整理。",
-      "why_it_matters": "Concrete enterprise AI integration patterns backed by AWS — strong reference material for client proposals on AI adoption strategy.",
+      "rank": 1,
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff"
+      "platform_color": "#3ea8ff",
+      "english_summary": "2026年6月25日にAWSが公開した記事から、既存システムやデータへAIを追加する3つのパターンを整理します。 今回取り上げるのは、次の事例です。 既存資産 AIの追加方法 REST API Agentic OverlayでA2AとMCPへ対応 AWS Healthのイベント MCP対応AIエージェントで自然言語分析 低解像度の映像 SageMaker A",
+      "japanese_summary": "既存システムへAIを組み込む3つのパターン：REST API・運用データ・映像資産",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
-      "id": "zenn_mcp-jp-connector-curation",
+      "id": "zenn_2026-06-25-chip-war-agent-democratization-2026",
       "platform": "zenn",
-      "title": "MCPコネクタは数時間で書ける。難しいのは「作らない判断」と「公式が出たら畳む運用」だった",
-      "text": "\n TL;DR\n\n日本の SMB 向け SaaS で公式 MCP が存在しないものだけを対象にしたコネクタ集 mcp-jp を OSS 公開しています（独自実装 30+）。\nREST API さえあれば、MCP コネクタ自体は数時間で書けます。本数は差別化になりません。\n本当に消耗するのは「需要がないものを作る」「いずれ公式が出るものを今作る」の 2 つでした。これを人の記憶に頼らず仕組みで止めるのが設計の主題になりました。\nそのために導入したのが (1) 着手前の候補選定マトリクス (2) 公式 MCP との重複を CI で落とす巡回チェック (3) 公式が出たコネクタを archiv...",
-      "created_at": "Wed, 24 Jun 2026 16:06:27 GMT",
-      "author_id": "medium_cbsc",
-      "author_handle": "medium_cbsc",
-      "author_name": "medium_cbsc",
-      "article_url": "https://zenn.dev/mediiiiium/articles/mcp-jp-connector-curation",
+      "title": "AIの主導権争い、3つの戦線が動いた",
+      "text": "\n AIの主導権争い、3つの戦線が動いた\n2026-06-25 | 読了 4分 | #AIチップ #エージェント #セキュリティ\nOpenAIが独自チップを発表し、AnthropicはAIエージェント構築を「分単位」に縮めた。そしてセキュリティの自動化まで——AI産業の三つの戦線が、同じ週に一気に動いた。\n\n\n OpenAIの「脱NVIDIA」宣言\nOpenAIがBroadcomと共同開発した独自チップ「Jalapeño」を発表した。NVIDIAへの依存から脱却し、推論コストと速度を自社でコントロールできるようになる。GoogleのTPU、AmazonのTrainiumに続き、主要AI企...",
+      "created_at": "Wed, 24 Jun 2026 22:25:17 GMT",
+      "author_id": "lingmu",
+      "author_handle": "lingmu",
+      "author_name": "lingmu",
+      "article_url": "https://zenn.dev/lingmu/articles/2026-06-25-chip-war-agent-democratization-2026",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "生成ai"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "生成ai",
+        "agent",
+        "automation"
+      ],
+      "passed_filter": true,
+      "rank": 2,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "AIの主導権争い、3つの戦線が動いた 2026-06-25 | 読了 4分 | #AIチップ #エージェント #セキュリティ OpenAIが独自チップを発表し、AnthropicはAIエージェント構築を「分単位」に縮めた。そしてセキュリティの自動化まで——AI産業の三つの戦線が、同じ週に一気に動いた。 OpenAIの「脱NVIDIA」宣言 OpenAIがBr",
+      "japanese_summary": "AIの主導権争い、3つの戦線が動いた",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_20260626-agentic-search-no-index",
+      "platform": "zenn",
+      "title": "RAGを捨てる：インデックスを作らないagentic searchをPythonで実装し、ベクトルRAGと精度・コストを比較する",
+      "text": "「RAGを組んだものの、ドキュメントを更新するたびに再embedが走り、インデックスの保守が止まらない」\n「ベクトルDBを運用に乗せた途端、staleness（インデックスと実体のズレ）の管理が新しい負債になった」\nこうした状態に心当たりがある方は少なくありません。ベクトルRAGは検索の定番として定着しましたが、その代償として「embeddingモデル・ベクトルDB・再インデックスのパイプライン」という常時稼働インフラを抱えることになります。\n一方で、Claude CodeやCursorといったコーディングエージェントは、初期に試したローカルベクトルDBを捨て、インデックスを一切持たない...",
+      "created_at": "Fri, 26 Jun 2026 02:00:00 GMT",
+      "author_id": "リベルクラフト",
+      "author_handle": "リベルクラフト",
+      "author_name": "リベルクラフト",
+      "article_url": "https://zenn.dev/libercraft/articles/20260626-agentic-search-no-index",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "llm"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "experiment",
+      "inferred_tags": [
+        "llm",
+        "Claude",
+        "RAG",
+        "agent",
+        "Cursor"
+      ],
+      "passed_filter": true,
+      "rank": 3,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "「RAGを組んだものの、ドキュメントを更新するたびに再embedが走り、インデックスの保守が止まらない」 「ベクトルDBを運用に乗せた途端、staleness（インデックスと実体のズレ）の管理が新しい負債になった」 こうした状態に心当たりがある方は少なくありません。ベクトルRAGは検索の定番として定着しましたが、その代償として「embeddingモデル・ベク",
+      "japanese_summary": "RAGを捨てる：インデックスを作らないagentic searchをPythonで実装し、ベクトルRAGと精度・コストを比較する",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_c961141dd4c9c8",
+      "platform": "zenn",
+      "title": "「AIがSQLを書いてくれる」で終わらせない − 分析基盤の育て方",
+      "text": "トリビューでCTOをしている小尾（@obiyuta）です。\n弊社ではAIを前提とした全社業務の再構築に取り組んでおり、前回はその中で取り組んでいる社内MCPを載せる共通基盤（認証・認可・ログ）をご紹介しました。\n今回は具体的な活用事例として、非エンジニアが自分で本番データを分析できるような分析基盤と、作って終わらない改善ループをどう構築、運用しているかご紹介します。\n\n 「SQLが書ける」と「正しく答えられる」は違う\n分析基盤そのものは特殊なものではなく、ClaudeやNotion AIなどから自然言語で問いを投げると、SQLを組み立てて、BigQueryで実行して結果を返すという、至っ...",
+      "created_at": "Wed, 24 Jun 2026 09:20:35 GMT",
+      "author_id": "obiyuta",
+      "author_handle": "obiyuta",
+      "author_name": "obiyuta",
+      "article_url": "https://zenn.dev/tribeau/articles/c961141dd4c9c8",
       "metrics": {
         "likes": 0,
         "comments": 0
@@ -112,75 +147,110 @@
         "mcp"
       ],
       "scores": {
-        "novelty": 5,
+        "novelty": 0,
         "practicality": 5,
-        "evidence": 0,
+        "evidence": 5,
+        "content_value": 5,
         "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
-      "category": "new_tool",
+      "category": "workflow_demo",
       "inferred_tags": [
         "mcp",
         "MCP",
-        "SaaS"
+        "Claude",
+        "Notion"
       ],
       "passed_filter": true,
-      "rank": 3,
-      "english_summary": "A developer who open-sourced 30+ MCP connectors for Japanese SMB SaaS tools shares the hard lessons: building connectors is fast, but deciding what NOT to build (things that will get official support) is the real skill.",
-      "japanese_summary": "日本SMB向けSaaS 30+のMCPコネクタOSSを公開した筆者が「作らない判断」の重要性を解説。",
-      "why_it_matters": "Relevant to any MCP toolchain work — the \"don't build what will go official\" lesson prevents real engineering waste, and the OSS library itself is worth bookmarking.",
+      "rank": 4,
       "platform_label": "Zenn",
-      "platform_color": "#3ea8ff"
+      "platform_color": "#3ea8ff",
+      "english_summary": "トリビューでCTOをしている小尾（@obiyuta）です。 弊社ではAIを前提とした全社業務の再構築に取り組んでおり、前回はその中で取り組んでいる社内MCPを載せる共通基盤（認証・認可・ログ）をご紹介しました。 今回は具体的な活用事例として、非エンジニアが自分で本番データを分析できるような分析基盤と、作って終わらない改善ループをどう構築、運用しているかご紹介",
+      "japanese_summary": "「AIがSQLを書いてくれる」で終わらせない − 分析基盤の育て方",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
-      "id": "qiita_ff24347d28dcd9b7639d",
-      "platform": "qiita",
-      "title": "AIツール、何を使っていますか？ ― GAS×Geminiなら無料で手書き帳票をAI-OCR、スプレッドシートへ自動入力",
-      "text": ":::note info\n本記事は PROMPT-X 技術ブログ（[blog.prompt-x.jp](https://blog.prompt-x.jp/post/gas-gemini-で手書き帳票をai-ocr-―-スプレッドシートに自動入力する)）に掲載した内容をQiita用に再構成したものです。\n:::\n\n業務でAIを使おうとすると、まず「どのツールを入れるか」で悩みがちです。ワークフロー自動化ならDifyやn8n、コーディングや業務自動化ならAnthropicのClaude Code / Claude Cowork、OpenAIのCodex——選択肢は年々増えています。\n\nですが、新しいツールをわざわざ導入しなくても、すでに多くの現場で使い慣れている **GAS（Google Apps Script）だけでAIを活用できます**。GASはGoogleアカウントがあれば**無料**で使えるサーバーレスの実行環境で、`UrlFetchApp`で外部APIをそのまま叩けるため、Gemini APIもそのまま呼び出せます。スプレッドシートやドライブとの連携も標準で備わっているので、「撮",
-      "created_at": "2026-06-26T16:17:50+09:00",
-      "author_id": "y_nakahira_prompt-x",
-      "author_handle": "y_nakahira_prompt-x",
-      "author_name": "中平 善文",
-      "article_url": "https://qiita.com/y_nakahira_prompt-x/items/ff24347d28dcd9b7639d",
+      "id": "zenn_dify-practical-guide",
+      "platform": "zenn",
+      "title": "Dify実践運用ガイド: 公式ドキュメントに書かれていない詰まりどころと解決策",
+      "text": "WSL+Dockerでのセルフホスト構築からAzure OpenAI連携、Codeノードでのpandas/numpy実行、Workflowノードの型問題、運用トラブルシューティング、本番公開前のセキュリティ設定まで。公式ドキュメントに書かれていない詰まりどころを実践ベースで解説します。",
+      "created_at": "Tue, 09 Jun 2026 10:41:22 GMT",
+      "author_id": "OKZAQ",
+      "author_handle": "OKZAQ",
+      "author_name": "OKZAQ",
+      "article_url": "https://zenn.dev/okzaq/books/dify-practical-guide",
       "metrics": {
-        "likes": 0
+        "likes": 0,
+        "comments": 0
       },
       "tags": [
-        "GoogleAppsScript",
-        "spreadsheet",
-        "OCR",
-        "Gemini",
-        "生成AI"
+        "dify"
       ],
       "scores": {
         "novelty": 5,
         "practicality": 5,
-        "evidence": 0,
-        "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 20
       },
-      "category": "workflow_demo",
+      "category": "new_tool",
       "inferred_tags": [
-        "GoogleAppsScript",
-        "spreadsheet",
-        "OCR",
-        "Gemini",
-        "生成AI",
-        "Claude",
-        "Dify",
-        "n8n",
-        "automation",
-        "Qiita"
+        "dify",
+        "Dify"
       ],
       "passed_filter": true,
-      "rank": 4,
-      "english_summary": "Step-by-step guide to building a free AI-OCR system using Google Apps Script and Gemini to automatically read handwritten Japanese forms and push data into Google Sheets — no paid APIs needed.",
-      "japanese_summary": "GAS×Geminiで手書き帳票をAI-OCRしてスプレッドシートへ自動入力する無料構築ガイド。",
-      "why_it_matters": "Practical zero-cost automation for a very common Japanese SMB pain point (paper forms). Good concrete demo for AI audit pitches.",
+      "rank": 5,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "WSL+Dockerでのセルフホスト構築からAzure OpenAI連携、Codeノードでのpandas/numpy実行、Workflowノードの型問題、運用トラブルシューティング、本番公開前のセキュリティ設定まで。公式ドキュメントに書かれていない詰まりどころを実践ベースで解説します。",
+      "japanese_summary": "Dify実践運用ガイド: 公式ドキュメントに書かれていない詰まりどころと解決策",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_8e43493e2131e29709bb",
+      "platform": "qiita",
+      "title": "第3回【防衛編】AIの暴走からプロジェクトを守る！Gitとデバッグの絶対防衛策",
+      "text": "> **【執筆の経緯：なぜこの記事を書いたのか】**\n> 本ブログシリーズ（全3回）は、プログラミング完全未経験の筆者が、これから「2Dゲーム」をVibe Codingで実際に開発するにあたり、**迷走やプロジェクト崩壊を防ぐための事前準備として、AIと徹底的にディスカッションして知識をマッピングした実践記録**です。\n> 第3回では、どれほど完璧に指示を出しても必ず直面する **「デバッグ（エラー修正）の底なし沼からの脱出術」と、プロジェクトを破壊から守る命綱「Git（セーブデータ管理）」** にスコープを絞り、ゲーム開発を最後まで挫折せずに「完成・リリース」へと導くための絶対防衛策を解説します。\n\n【目次：AIを使ってゲームを作る！「Vibe Coding」実践ブログ】\n\n[第1回：【準備編】AIと一緒にゲームを作る前に知っておくべき「環境とリスク」](https://qiita.com/tademushi/items/677a105abfccd11045e4)\n\n[第2回：【実践編】AIに「賢く」コードを書かせるプロンプトとタスク分割術](https://qiita.com/ta",
+      "created_at": "2026-06-26T15:39:37+09:00",
+      "author_id": "tademushi",
+      "author_handle": "tademushi",
+      "author_name": "蓼虫",
+      "article_url": "https://qiita.com/tademushi/items/8e43493e2131e29709bb",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "初心者",
+        "ゲーム制作",
+        "個人開発",
+        "生成AI",
+        "VibeCoding"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "初心者",
+        "ゲーム制作",
+        "個人開発",
+        "生成AI",
+        "VibeCoding",
+        "prompt"
+      ],
+      "passed_filter": true,
+      "rank": 6,
       "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "platform_color": "#55c500",
+      "english_summary": "> **【執筆の経緯：なぜこの記事を書いたのか】** > 本ブログシリーズ（全3回）は、プログラミング完全未経験の筆者が、これから「2Dゲーム」をVibe Codingで実際に開発するにあたり、**迷走やプロジェクト崩壊を防ぐための事前準備として、AIと徹底的にディスカッションして知識をマッピングした実践記録**です。 > 第3回では、どれほど完璧に指示を出",
+      "japanese_summary": "第3回【防衛編】AIの暴走からプロジェクトを守る！Gitとデバッグの絶対防衛策",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
       "id": "qiita_615ef6d15aef2f661023",
@@ -206,9 +276,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
+        "content_value": 5,
         "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -219,12 +289,12 @@
         "詐欺対策"
       ],
       "passed_filter": true,
-      "rank": 5,
-      "english_summary": "Part 2 of a 3-part AI safety guide focused on detecting AI-generated impersonation scams — specifically fake executive emails — with practical verification methods for individuals and businesses.",
-      "japanese_summary": "AI生成なりすまし詐欺（偽社長メール等）の見分け方と防御手法を解説するAI安全活用ガイド第2回。",
-      "why_it_matters": "Client education on AI risk is increasingly part of advisory scope in Japan — this gives your a concrete talking point for SMB AI audit engagements.",
+      "rank": 7,
       "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "platform_color": "#55c500",
+      "english_summary": "> **連載：AI安全活用ガイド 初級編（全3回）** > - [#1 AIに何を話している？個人利用で知っておきたいリスクの基本]( > - **#2 AI時代の「なりすまし」詐欺を見抜く** ← 今ここ > - #3 AIツールを選ぶ・設定する・ルールを持つ 個人ガバナンスの始め方 # はじめに フィッシング詐欺はずっと前から存在していました。でも以前の",
+      "japanese_summary": "「社長からのメール」が偽物かもしれない時代　AI詐欺を見抜く方法【AI安全活用ガイド #2】",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
       "id": "qiita_19728db51737d9a315a6",
@@ -251,9 +321,9 @@
         "novelty": 0,
         "practicality": 5,
         "evidence": 5,
+        "content_value": 5,
         "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
       "category": "prompt_template",
       "inferred_tags": [
@@ -268,167 +338,75 @@
         "prompt"
       ],
       "passed_filter": true,
-      "rank": 6,
-      "english_summary": "Exposes four LLM attack vectors targeting the \"semantic layer\" — the gap that existing OWASP, NIST, and ISO frameworks miss when applied to LLM agents — with defensive design patterns.",
-      "japanese_summary": "既存セキュリティフレームワークが見落とすLLMエージェントの意味レイヤーへの4つの攻撃ベクターと防御設計。",
-      "why_it_matters": "Essential for any client deploying LLM agents in production. Helps teams deliver credible, specific AI risk assessments beyond generic compliance checklists.",
-      "platform_label": "Qiita",
-      "platform_color": "#55c500"
-    },
-    {
-      "id": "qiita_90c17b141f26ca2487c7",
-      "platform": "qiita",
-      "title": "1つのモデルを選ぶのをやめる、vLLM Semantic RouterのFusion",
-      "text": "「このリクエストはどのモデルに投げるべきか」。LLMルーティングの議論はずっとこの問いを中心に回ってきた。安いモデルで足りるか、それとも高いモデルにエスカレーションするか。要は1リクエストにつき1モデルを選ぶ、という前提だった。\n\nvLLMプロジェクトが6月16日に公開した [Fusion](https://vllm.ai/blog/2026-06-16-vllm-sr-fusion-api) は、その前提を外しにきている。1つ選ぶのではなく、複数のモデルに同じリクエストを同時に答えさせ、別のモデルがそれらを突き合わせて1つの回答に束ねる。発想自体は研究界隈で言うMixture-of-Agentsに近いが、これを推論サーバの「ルーター」の機能として、設定ファイル数行で本番運用に乗せられる形にしたのが今回の肝だ。\n\n## 🔀 そもそもvLLM Semantic Routerとは何か\n\nFusionの前提として、土台になっている [vLLM Semantic Router](https://github.com/vllm-project/semantic-router)(以下SR)を押さ",
-      "created_at": "2026-06-26T13:39:53+09:00",
-      "author_id": "okssusucha",
-      "author_handle": "okssusucha",
-      "author_name": "",
-      "article_url": "https://qiita.com/okssusucha/items/90c17b141f26ca2487c7",
-      "source_url": "https://github.com/vllm-project/semantic-router",
-      "metrics": {
-        "likes": 0
-      },
-      "tags": [
-        "機械学習",
-        "インフラ",
-        "AI",
-        "LLM",
-        "vLLM"
-      ],
-      "scores": {
-        "novelty": 5,
-        "practicality": 5,
-        "evidence": 5,
-        "japan_fit": 0,
-        "total": 20,
-        "content_value": 5
-      },
-      "category": "new_tool",
-      "inferred_tags": [
-        "機械学習",
-        "インフラ",
-        "AI",
-        "LLM",
-        "vLLM"
-      ],
-      "passed_filter": true,
-      "rank": 7,
-      "english_summary": "Explains vLLM's new Fusion API (June 2026), which moves beyond routing — instead of choosing one model per request, it blends outputs from multiple models simultaneously.",
-      "japanese_summary": "vLLM Fusionはモデルをルーティングするのではなくリクエストごとに複数モデルの出力を融合する新API。",
-      "why_it_matters": "Signals a shift in LLM infrastructure from single-model routing to ensemble blending — worth watching for clients building multi-model or cost-optimized AI pipelines.",
-      "platform_label": "Qiita",
-      "platform_color": "#55c500"
-    },
-    {
-      "id": "qiita_2cdbfabe4494182e7659",
-      "platform": "qiita",
-      "title": "無料枠ベクトルDB4本、精度は横並び——本当の差は「無料枠がどこで最初に詰まるか」だった（Supabase / Qdrant / Turso / Cloudflare 実測）",
-      "text": "> Qiita Tech Festa 2026 のお題「**AI時代のデータベース、何が変わる？**」に、**無料枠 × DB横断 × 再現可能な実測**という角度から答えます。\n> 対象: **Supabase(pgvector) / Qdrant Cloud / Turso(libSQL) / Cloudflare Vectorize**。データセット BEIR ArguAna(8,674文書)。ローカルCPUのみ・完全無料。\n> **測定器の故障や自分の勘違い（Qdrantが実は総当たりだった等）も含め、訂正の過程を全部公開します**（§8）。\n\n## 30秒でわかる結論（専門用語なし）\n\n無料で使えるベクトルデータベース4つに、**まったく同じ「検索の仕事」**をやらせて比べました。すると——**どれを使っても検索の精度はほぼ同じ**でした。\nでは何が違うのか。**「無料の上限に、どこが最初にぶつかるか」がDBごとにバラバラ**だったのです。あるDBは保存容量、別のDBはメモリ、別のDBは\"検索を速くするための索引\"が何十倍にも膨らんで容量を、別のDBは\"保存できる量そのものの",
-      "created_at": "2026-06-26T17:05:56+09:00",
-      "author_id": "axiompro70",
-      "author_handle": "axiompro70",
-      "author_name": "",
-      "article_url": "https://qiita.com/axiompro70/items/2cdbfabe4494182e7659",
-      "source_url": "https://github.com/axiom-pro/free-tier-vectordb-bench",
-      "metrics": {
-        "likes": 0
-      },
-      "tags": [
-        "cloudflare",
-        "rag",
-        "Supabase",
-        "Qdrant",
-        "べクトルDB"
-      ],
-      "scores": {
-        "novelty": 5,
-        "practicality": 5,
-        "evidence": 5,
-        "japan_fit": 0,
-        "total": 20,
-        "content_value": 5
-      },
-      "category": "new_tool",
-      "inferred_tags": [
-        "cloudflare",
-        "rag",
-        "Supabase",
-        "Qdrant",
-        "べクトルDB",
-        "Qiita"
-      ],
-      "passed_filter": true,
       "rank": 8,
-      "english_summary": "Empirical benchmark of Supabase (pgvector), Qdrant Cloud, Turso, and Cloudflare Vectorize on the BEIR dataset — accuracy is comparable across all four; the real differentiator is where each free tier hits its limit first.",
-      "japanese_summary": "Supabase・Qdrant・Turso・Cloudflare Vectorizeを実測比較。精度は横並び、差は無料枠の詰まり方にあった。",
-      "why_it_matters": "Saves hours of vector DB selection research for any client building a RAG system — the free-tier bottleneck analysis is the exact decision variable most teams miss.",
       "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "platform_color": "#55c500",
+      "english_summary": "## はじめに ファイアウォールを設定した。エンドポイントにEDRを入れた。ゼロトラストも導入済み。 それでも**LLMエージェントは止められない**。 なぜか。守っている場所が違うからだ。 この記事では、既存のセキュリティフレームワーク（OWASP・NIST・ISO）が カバーできていない**意味レイヤー**への攻撃と、その防御設計を解説する。 **対象読",
+      "japanese_summary": "LLMセキュリティの死角：意味レイヤーを狙う4つの攻撃ベクター",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
-      "id": "qiita_aaa66ceeaf24c94dfd82",
+      "id": "qiita_8ab795451e5fd096a59c",
       "platform": "qiita",
-      "title": "RAGの評価指標を自動最適化！ハイブリッド検索＆チャンキング戦略",
-      "text": "「RAGシステムを構築したはいいものの、どうも精度が安定しない」「ハルシネーションが減らない」「手作業でのチャンクサイズ調整に疲弊している」――多くの方がRAG開発で直面する課題ではないでしょうか。特に、従来のベクトル検索だけでは不十分なケースや、日本語特有の難しさから、RAGの真価を発揮できていないと感じることもあるでしょう。\n\nこの記事では、RAGアプリの精度向上に悩む実務エンジニア向けに、**手作業でのチューニングを減らし、自動評価を通じて最適なハイブリッド検索とチャンキング戦略を見つける具体的な手順と知見**を提供します。RAGの評価指標を自動最適化し、より高度なRAG構築アプローチを身につけることで、あなたのRAGシステムは確実に次のレベルへ到達するはずです。\n\n## RAGの精度向上を阻む壁：なぜ従来のRAGでは不十分なのか\n\nこのセクションでは、なぜ従来の単純なRAG実装では精度が出にくいのか、その根本的な原因を解説します。RAG開発において、多くのエンジニアが直面する課題は、単に「ベクトル検索で似た文書を探す」だけでは解決しません。\n\nRAG (Retrieval Au",
-      "created_at": "2026-06-25T18:50:09+09:00",
-      "author_id": "DaokFrontier",
-      "author_handle": "DaokFrontier",
-      "author_name": "",
-      "article_url": "https://qiita.com/DaokFrontier/items/aaa66ceeaf24c94dfd82",
-      "source_url": "https://github.com/explodinggradients/ragas](https://github.com/explodinggradients/ragas",
+      "title": "社内サーバーの10TBをAIの知識にする ― 外部重みアーキテクチャとAdaptive Knowledge Depthの提案",
+      "text": "## はじめに：10TBの知識 vs 数百GBの重み\n\n企業のファイルサーバーには、10TBを超える知識が眠っていることがある。\n\n設計書、議事録、障害報告書、問い合わせ履歴、業務マニュアル、契約書、社内Wiki――何年もかけて蓄積された組織固有の知識資産だ。\n\n一方、70BパラメータのLLMが保持できる知識は、数百GB程度の重みファイルに圧縮された汎用知識に過ぎない。\n\nこの2つの知識には、本質的な非対称性が存在する。\n\n| 比較軸   | LLMの内部重み     | 企業のファイルサーバー |\n| ----- | ------------ | ----------- |\n| 知識の種類 | 汎用的・統計的      | 組織固有・文脈依存   |\n| 更新頻度  | 再学習が必要       | 日々更新される     |\n| 正確性   | ハルシネーションの可能性 | 原本そのもの      |\n| 保持コスト | GPU・VRAM     | 既存インフラ      |\n\nもしサーバー上のデータをAIの「外部重み」として設計に組み込めるなら、企業はGPUを増設する前にやるべ",
+      "created_at": "2026-06-26T11:59:08+09:00",
+      "author_id": "nakatada-lab",
+      "author_handle": "nakatada-lab",
+      "author_name": "Nakamura",
+      "article_url": "https://qiita.com/nakatada-lab/items/8ab795451e5fd096a59c",
       "metrics": {
-        "likes": 0
+        "likes": 1
       },
       "tags": [
-        "自然言語処理",
-        "機械学習",
+        "ファイルサーバー",
         "rag",
-        "ベクトル検索",
-        "LLM"
+        "LLM",
+        "企業AI",
+        "AI設計"
       ],
       "scores": {
         "novelty": 0,
         "practicality": 5,
         "evidence": 5,
+        "content_value": 5,
         "japan_fit": 5,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
-      "category": "workflow_demo",
+      "category": "experiment",
       "inferred_tags": [
-        "自然言語処理",
-        "機械学習",
+        "ファイルサーバー",
         "rag",
-        "ベクトル検索",
         "LLM",
-        "RAG"
+        "企業AI",
+        "AI設計"
       ],
       "passed_filter": true,
       "rank": 9,
-      "english_summary": "Covers automated optimization of RAG evaluation metrics using hybrid search and chunking strategy tuning — targeting the common production problem of unstable accuracy in Japanese-language RAG systems.",
-      "japanese_summary": "日本語RAGの精度不安定問題をハイブリッド検索とチャンキング戦略の自動最適化で解決するアプローチ。",
-      "why_it_matters": "Addresses the pain point teams hit after their first RAG deployment — automated tuning cuts the manual iteration cycle significantly.",
       "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "platform_color": "#55c500",
+      "english_summary": "## はじめに：10TBの知識 vs 数百GBの重み 企業のファイルサーバーには、10TBを超える知識が眠っていることがある。 設計書、議事録、障害報告書、問い合わせ履歴、業務マニュアル、契約書、社内Wiki――何年もかけて蓄積された組織固有の知識資産だ。 一方、70BパラメータのLLMが保持できる知識は、数百GB程度の重みファイルに圧縮された汎用知識に過ぎ",
+      "japanese_summary": "社内サーバーの10TBをAIの知識にする ― 外部重みアーキテクチャとAdaptive Knowledge Depthの提案",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     },
     {
-      "id": "qiita_bb67e7e83a1510495107",
+      "id": "qiita_efba074c58e1317ebc46",
       "platform": "qiita",
-      "title": "RAG の Embedding と Vector Database：文書を「検索できる形」にする仕組み",
-      "text": "<!--\nBefore a RAG system can retrieve document chunks, it needs two things.\n\nFirst, it needs a way to convert text into vectors. That is the role of **embedding**.\n-->\n\nRAG システムが文書チャンクを検索できるようになるには、まず 2 つのものが必要です。\n\n1 つ目は、テキストをベクトルに変換する方法です。これが **Embedding（埋め込み）** の役割です。\n\n<!--\n```text\ntext chunk\n  ↓\nembedding model\n  ↓\nvector\n```\n-->\n\n```text\nテキストチャンク\n  ↓\n埋め込みモデル\n  ↓\nベクトル\n```\n\n<!--\nFor example:\n-->\n\nたとえば、次のようになります。\n\n<!--\n```text\n\"New employees are eligible for ten days of paid leave.\"\n  ↓\n[0.12, ",
-      "created_at": "2026-06-25T01:20:35+09:00",
-      "author_id": "imi-glenn",
-      "author_handle": "imi-glenn",
-      "author_name": "",
-      "article_url": "https://qiita.com/imi-glenn/items/bb67e7e83a1510495107",
-      "source_url": "https://github.com/facebookresearch/faiss/wiki/MetricType-and-distances",
+      "title": "【速報】OpenAI Node SDK v6.45.0 リリース！afterCompletion hookとRealtime sideband対応を解説",
+      "text": ":::note\nこの記事は **きなこもっちーのテック深掘り** チャンネルの速報解説記事です。\n公式リリースをもとに、きなこ（セキュインコ♀・技術統括）とも っちー（ハムスター♂・初心者代表）が速報解説します！\n:::\n\n## 🦜きなこ：速報！OpenAI Node SDK v6.45.0 が来たよ\n\n2026年6月24日、OpenAI の公式 Node.js SDK「openai-node」の **v6.45.0** がリリースされたにゃ！\n\n目玉は **afterCompletion hook** の追加と **Realtime sideband 対応** の2つ。地味に見えるけど、マルチエージェント系の実装やリアルタイムAPI を使ってる人にはかなり刺さる更新なの。\n\n> 公式リリースノート: https://github.com/openai/openai-node/releases/tag/v6.45.0\n\n---\n\n## 🐹もっちー：え、なにが変わったの？\n\n**4つのアップデート**があるよ、もっちー！順番に見ていこ。\n\n---\n\n## 🔧 1. afterCom",
+      "created_at": "2026-06-26T10:15:30+09:00",
+      "author_id": "kinamocchi_tech",
+      "author_handle": "kinamocchi_tech",
+      "author_name": "きなこもっちーの テック深掘り🐹🐦",
+      "article_url": "https://qiita.com/kinamocchi_tech/items/efba074c58e1317ebc46",
+      "source_url": "https://github.com/openai/openai-node/releases/tag/v6.45.0",
       "metrics": {
         "likes": 0
       },
       "tags": [
-        "AI",
-        "rag",
+        "Node.js",
+        "TypeScript",
+        "OpenAI",
         "LLM",
         "AIエージェント"
       ],
@@ -436,25 +414,849 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
+        "content_value": 5,
         "japan_fit": 0,
-        "total": 20,
-        "content_value": 5
+        "total": 20
       },
-      "category": "other",
+      "category": "new_tool",
       "inferred_tags": [
-        "AI",
-        "rag",
+        "Node.js",
+        "TypeScript",
+        "OpenAI",
         "LLM",
         "AIエージェント",
-        "RAG"
+        "agent"
       ],
       "passed_filter": true,
       "rank": 10,
-      "english_summary": "Beginner-friendly explainer of how Embedding models and Vector Databases work together in a RAG pipeline, with clear diagrams and examples suitable for a Japanese business context.",
-      "japanese_summary": "RAGにおけるEmbeddingとベクトルDBの仕組みを図解付きで初心者向けに解説。",
-      "why_it_matters": "Good reference to share with non-technical Japanese clients being introduced to RAG — clear enough to build shared understanding before a technical deep-dive.",
       "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "platform_color": "#55c500",
+      "english_summary": ":::note この記事は **きなこもっちーのテック深掘り** チャンネルの速報解説記事です。 公式リリースをもとに、きなこ（セキュインコ♀・技術統括）とも っちー（ハムスター♂・初心者代表）が速報解説します！ ::: ## 🦜きなこ：速報！OpenAI Node SDK v6.45.0 が来たよ 2026年6月24日、OpenAI の公式 Node.j",
+      "japanese_summary": "【速報】OpenAI Node SDK v6.45.0 リリース！afterCompletion hookとRealtime sideband対応を解説",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_e1dde26d6fcdbea86918",
+      "platform": "qiita",
+      "title": "MCPX 実践 — 複数のMCPサーバーを1つのゲートウェイに束ねて自己ホストする",
+      "text": "\n## はじめに\n\nMCP（Model Context Protocol）サーバーを使い始めると、すぐにある問題にぶつかります。**サーバーが増えるほど、クライアント側の設定が雪だるま式に膨らむ** ことです。\n\nGitHub 用、Slack 用、社内 DB 用、メモリ用……とサーバーを足していくと、Claude Code・Claude Desktop・Cursor それぞれの設定ファイルに同じサーバー定義を何度も書くことになります。エージェント（M 個）とサーバー（N 個）の組み合わせは M×N に膨れ上がり、認証情報も各所に散らばります。\n\nこの記事では、その M×N 問題を **M+1+N** に簡約する OSS の MCP ゲートウェイ **MCPX**（Lunar.dev 製・MITライセンス）を、Docker で自己ホストして Claude Code から使うところまでをハンズオンで解説します。\n\n- **対象読者**: 複数の MCP サーバーを運用していて、設定の重複やアクセス制御に困っているエンジニア\n- **ゴール**: ローカルに MCPX を立て、複数の上流 M",
+      "created_at": "2026-06-25T01:56:46+09:00",
+      "author_id": "kai_kou",
+      "author_handle": "kai_kou",
+      "author_name": "甲斐 甲",
+      "article_url": "https://qiita.com/kai_kou/items/e1dde26d6fcdbea86918",
+      "source_url": "https://github.com/TheLunarCompany/lunar",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "Docker",
+        "OpenSource",
+        "AI",
+        "MCP",
+        "ClaudeCode"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "other",
+      "inferred_tags": [
+        "Docker",
+        "OpenSource",
+        "AI",
+        "MCP",
+        "ClaudeCode",
+        "Claude",
+        "agent",
+        "Slack",
+        "Cursor"
+      ],
+      "passed_filter": true,
+      "rank": 11,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "## はじめに MCP（Model Context Protocol）サーバーを使い始めると、すぐにある問題にぶつかります。**サーバーが増えるほど、クライアント側の設定が雪だるま式に膨らむ** ことです。 GitHub 用、Slack 用、社内 DB 用、メモリ用……とサーバーを足していくと、Claude Code・Claude Desktop・Curso",
+      "japanese_summary": "MCPX 実践 — 複数のMCPサーバーを1つのゲートウェイに束ねて自己ホストする",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_b2509dff8c9cc08e12f6",
+      "platform": "qiita",
+      "title": "【国立大学と研究したテックリードが語るAIの裏側 第3回】なぜAI開発は地獄なのか？現場のエンジニアが泣く「難しいこと」トップ5",
+      "text": "\n# はじめに\n\n「AIを使えば、うちの社内データもいい感じに検索できるシステムがすぐ作れるでしょ？」\n\n経営層や営業担当からのこの無邪気な一言に、何度となく血の涙を流してきたエンジニアの皆様、お疲れ様です。\n本連載【テックリードが語る、AIの「魔法」と「泥臭い現実」のすべて】もいよいよ最終回です。\n\n第1回では「AIは言葉を理解していないという数学的現実」を、第2回では「億単位のアクセスを捌くインフラの裏側」を解説してきました。\n最終回となる今回は、私たちが実際に**AIを業務システムに組み込む（RAG構築など）際に直面する、地獄のように泥臭い現実**を「難しいことランキング トップ5」として発表します。\n\nAI開発はスマートな魔法などではありません。無限のデータ掃除と、正解のないテストとの戦いです。現場のリアルな悲鳴と、その解決策（アーキテクチャ）を見ていきましょう。\n\n![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3734047/652d364e-5357-4751-ac83-2d",
+      "created_at": "2026-06-26T08:46:22+09:00",
+      "author_id": "futayubi5656",
+      "author_handle": "futayubi5656",
+      "author_name": "",
+      "article_url": "https://qiita.com/futayubi5656/items/b2509dff8c9cc08e12f6",
+      "metrics": {
+        "likes": 1
+      },
+      "tags": [
+        "テスト",
+        "AI",
+        "読み物",
+        "rag",
+        "プロンプトエンジニアリング"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 0,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "テスト",
+        "AI",
+        "読み物",
+        "rag",
+        "プロンプトエンジニアリング",
+        "RAG"
+      ],
+      "passed_filter": true,
+      "rank": 12,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "# はじめに 「AIを使えば、うちの社内データもいい感じに検索できるシステムがすぐ作れるでしょ？」 経営層や営業担当からのこの無邪気な一言に、何度となく血の涙を流してきたエンジニアの皆様、お疲れ様です。 本連載【テックリードが語る、AIの「魔法」と「泥臭い現実」のすべて】もいよいよ最終回です。 第1回では「AIは言葉を理解していないという数学的現実」を、第2",
+      "japanese_summary": "【国立大学と研究したテックリードが語るAIの裏側 第3回】なぜAI開発は地獄なのか？現場のエンジニアが泣く「難しいこと」トップ5",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_70f4f99eafa2198dc210",
+      "platform": "qiita",
+      "title": "Python × Dify × RAGで学ぶ業務システム開発入門【第9回 RAG構築編】",
+      "text": "<!--\ntitle: \"Python × Dify × RAGで学ぶ業務システム開発入門【第9回 RAG構築編】\"\nemoji: \"🔍\"\ntype: \"tech\"\ntopics: [\"Python\", \"Flask\", \"Dify\", \"RAG\", \"Embedding\"]\npublished: false\n-->\n\n\n## はじめに\n\n前回は、Dify APIを使った評価コメントの自動生成を実装しました。\n\n\n[前回の記事：Python × Dify × RAGで学ぶ業務システム開発入門【第8回 Dify API連携編】](https://qiita.com/aiota/items/1b4c274deb4733b362b9)\n\n第9回では、**RAG（Retrieval-Augmented Generation）** を構築します。\n\nRAGとは「検索で関連情報を取得し、その情報を元にAIが回答を生成する」仕組みです。\n\n```\n従来の生成AI（第8回）\n  → AIの知識のみで回答する\n  → 社内固有の情報は知らない\n  → ハルシネーション（事実と異なる回答）のリスクが高い",
+      "created_at": "2026-06-20T19:03:50+09:00",
+      "author_id": "aiota",
+      "author_handle": "aiota",
+      "author_name": "hiroto takashima",
+      "article_url": "https://qiita.com/aiota/items/70f4f99eafa2198dc210",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "Python",
+        "Flask",
+        "rag",
+        "embedding",
+        "Dify"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "Python",
+        "Flask",
+        "rag",
+        "embedding",
+        "Dify",
+        "RAG"
+      ],
+      "passed_filter": true,
+      "rank": 13,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "## はじめに 前回は、Dify APIを使った評価コメントの自動生成を実装しました。 [前回の記事：Python × Dify × RAGで学ぶ業務システム開発入門【第8回 Dify API連携編】]( 第9回では、**RAG（Retrieval-Augmented Generation）** を構築します。 RAGとは「検索で関連情報を取得し、その情報を",
+      "japanese_summary": "Python × Dify × RAGで学ぶ業務システム開発入門【第9回 RAG構築編】",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_afa25240c35293a960c6",
+      "platform": "qiita",
+      "title": "Difyで何ができる？生成AIアプリ開発ツールをざっくり理解する",
+      "text": "## はじめに\n\n生成AIを業務で使う場面が増えていますが、毎回ChatGPTなどに手入力するだけでは限界があります。\n\nたとえば、次のようなことを実現したいケースがあります。\n\n* 社内文書を参照して回答したい\n* 問い合わせ対応を自動化したい\n* AIアプリをWebやAPIとして使いたい\n* 既存の業務システムとAIを連携させたい\n\nこうした用途で使えるのが **Dify** です。\n\nこの記事では、Difyの細かい構築手順ではなく、**Difyで何ができるのか**を中心にわかりやすく整理します。\n\n## 対象読者\n\nこの記事は、次のような人を対象にしています。\n\n* Difyという名前は聞いたことがある人\n* 生成AIアプリを作ってみたい人\n* 社内FAQや問い合わせBotを検討している人\n* ノーコード・ローコード中心でAI活用を始めたい人\n* 業務システムと生成AIを連携させたい人\n\nなお、Difyは画面上でAIアプリを作りやすいツールですが、本番運用や外部システム連携では、API、認証、権限管理、ログ管理などの技術知識が必要になる場合があります。\n\n## Difyとは\n\nD",
+      "created_at": "2026-06-17T21:15:52+09:00",
+      "author_id": "ABC-KeisukeKashio",
+      "author_handle": "ABC-KeisukeKashio",
+      "author_name": "",
+      "article_url": "https://qiita.com/ABC-KeisukeKashio/items/afa25240c35293a960c6",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "AI",
+        "rag",
+        "生成AI",
+        "LLM",
+        "Dify"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "AI",
+        "rag",
+        "生成AI",
+        "LLM",
+        "Dify",
+        "GPT",
+        "no-code",
+        "automation"
+      ],
+      "passed_filter": true,
+      "rank": 14,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "## はじめに 生成AIを業務で使う場面が増えていますが、毎回ChatGPTなどに手入力するだけでは限界があります。 たとえば、次のようなことを実現したいケースがあります。 * 社内文書を参照して回答したい * 問い合わせ対応を自動化したい * AIアプリをWebやAPIとして使いたい * 既存の業務システムとAIを連携させたい こうした用途で使えるのが *",
+      "japanese_summary": "Difyで何ができる？生成AIアプリ開発ツールをざっくり理解する",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_f1a9327bddeea1d954ab",
+      "platform": "qiita",
+      "title": "Claude Code で「HQ AIカンパニー」を1人で動かす全体像",
+      "text": "\n![Claude Code で HQ AIカンパニーを1人で動かす全体像](https://raw.githubusercontent.com/YushiYamamoto/YushiYamamoto/main/assets/hq-ai-company-eyecatch.png)\n\n2026年6月、筆者は受託開発・SaaS・メディアの3事業を抱えながら、Claude Code だけで「架空の会社組織」を動かす試みを始めた。司令塔AIが朝の最優先タスクを決め、営業部・集客部・SaaS事業部・経理2部署がそれぞれ下書きを生成し、人間は「送る/送らない」だけを判断する──この仕組みを **HQ AIカンパニー** と呼んでいる。本記事では、設計思想・実装の全体像・実際に踏んだ失敗パターンを包み隠さず公開する。\n\n## 結論\n\n| 項目 | 内容 |\n|------|------|\n| 使用ツール | Claude Code（claude -p）+ launchd + n8n + Telegram |\n| 自動実行 | 毎朝 07:03 に launchd が `claude -p SKILL",
+      "created_at": "2026-06-23T11:16:18+09:00",
+      "author_id": "YushiYamamoto",
+      "author_handle": "YushiYamamoto",
+      "author_name": "山本  勇志",
+      "article_url": "https://qiita.com/YushiYamamoto/items/f1a9327bddeea1d954ab",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "自動化",
+        "個人開発",
+        "n8n",
+        "AIエージェント",
+        "ClaudeCode"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "自動化",
+        "個人開発",
+        "n8n",
+        "AIエージェント",
+        "ClaudeCode",
+        "Claude",
+        "SaaS"
+      ],
+      "passed_filter": true,
+      "rank": 15,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "2026年6月、筆者は受託開発・SaaS・メディアの3事業を抱えながら、Claude Code だけで「架空の会社組織」を動かす試みを始めた。司令塔AIが朝の最優先タスクを決め、営業部・集客部・SaaS事業部・経理2部署がそれぞれ下書きを生成し、人間は「送る/送らない」だけを判断する──この仕組みを **HQ AIカンパニー** と呼んでいる。本記事では、設",
+      "japanese_summary": "Claude Code で「HQ AIカンパニー」を1人で動かす全体像",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "qiita_03371ee57f9e7f149eb0",
+      "platform": "qiita",
+      "title": "n8n で New Relic のカスタムパッケージ作ったら、思ったよりダウンロードされた話",
+      "text": "こんにちは！普段からプライベートでワークフロー自動化ツールの **n8n** を活用しているのですが、今回はオブザーバビリティプラットフォーム **New Relic** と連携させるカスタムノード（npm package）を個人開発で自作して公開しました。\n\n今回は作った npm package の紹介、**Claude Codeを活用して1週間ほどで作成した話**、そして**New Relic AI MCP（Model Context Protocol）** と組み合わせたデモをお届けします。\n\n## n8nって何？\nn8n（エヌエイトエヌ）とは、さまざまなWebサービスやアプリケーション、生成AIなどをドラッグ＆ドロップでつなぎ合わせ、業務の自動化やデータ連携を実現するワークフロー自動化ツールです。\n\n現在、n8nには New Relic に対応した公式ノードが用意されていません。そこで今回は、n8n上に独自の連携機能を追加できる仕組みを利用して、New Relic 用のカスタムノード（プラグイン）を自作してみたいと思います。\n\nn8nはTypeScriptでの追加開発をサポート",
+      "created_at": "2026-06-01T20:08:22+09:00",
+      "author_id": "seamoooooo",
+      "author_handle": "seamoooooo",
+      "author_name": "",
+      "article_url": "https://qiita.com/seamoooooo/items/03371ee57f9e7f149eb0",
+      "source_url": "https://github.com/n8n-io/n8n-nodes-starter",
+      "metrics": {
+        "likes": 9
+      },
+      "tags": [
+        "NewRelic",
+        "npm",
+        "AI",
+        "MCP",
+        "n8n"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "NewRelic",
+        "npm",
+        "AI",
+        "MCP",
+        "n8n",
+        "Claude",
+        "automation"
+      ],
+      "passed_filter": true,
+      "rank": 16,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500",
+      "english_summary": "こんにちは！普段からプライベートでワークフロー自動化ツールの **n8n** を活用しているのですが、今回はオブザーバビリティプラットフォーム **New Relic** と連携させるカスタムノード（npm package）を個人開発で自作して公開しました。 今回は作った npm package の紹介、**Claude Codeを活用して1週間ほどで作成し",
+      "japanese_summary": "n8n で New Relic のカスタムパッケージ作ったら、思ったよりダウンロードされた話",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_21f4e5aefa85cc",
+      "platform": "zenn",
+      "title": "ギタリストの成長を自動観測・分析するプラットフォームに「AI記録」を実装",
+      "text": "最近、個人開発している RiffLog に新機能「AI記録」を追加しました。\n\n\n RiffLogとは？\nギタリストの成長を自動観測・分析するプラットフォームです。\n\nダークモードも導入しました\n練習ログを書き、Feelを残し、AIが ToneDNA を分析します。\nさらに、\n\n成長の記録\n達成記録\nギタリスト年表\n\nなどを通して、\n自分の成長を可視化できるようにしています。\nコンセプトは「ギタリストの成長OS」です。\n\n\n ギターを練習した後に、ログやFeelなどを書くのが面倒\n開発していて気付いたのですが、\n一番面倒なのは\nログを書くこと\n開発者の自分が思った（笑）\n\nギターは毎日弾...",
+      "created_at": "Thu, 25 Jun 2026 08:07:14 GMT",
+      "author_id": "ハードロック腰部捻挫組",
+      "author_handle": "ハードロック腰部捻挫組",
+      "author_name": "ハードロック腰部捻挫組",
+      "article_url": "https://zenn.dev/rifflog/articles/21f4e5aefa85cc",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "生成ai"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "生成ai"
+      ],
+      "passed_filter": true,
+      "rank": 17,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "最近、個人開発している RiffLog に新機能「AI記録」を追加しました。 RiffLogとは？ ギタリストの成長を自動観測・分析するプラットフォームです。 ダークモードも導入しました 練習ログを書き、Feelを残し、AIが ToneDNA を分析します。 さらに、 成長の記録 達成記録 ギタリスト年表 などを通して、 自分の成長を可視化できるようにしてい",
+      "japanese_summary": "ギタリストの成長を自動観測・分析するプラットフォームに「AI記録」を実装",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_mulmoclaude-zenn-skill",
+      "platform": "zenn",
+      "title": "MulmoClaude の作業を Zenn 記事化するスキルを作り、本体のシステムスキルにするまで",
+      "text": "MulmoClaude でやった作業を、そのまま Zenn の技術記事にして共有したい——という動機から、\n「作業 → Zenn 記事」を自動化するスキルを作った。さらにそれを MulmoClaude 本体に同梱される\nシステムスキルへ昇格させ、PR まで出した。この記事はその一連の流れと、途中で分かった\nスキルの仕組みをまとめたもの（実際この記事自体、作ったスキルで書いている）。\n\n スキルとは（MulmoClaude / Claude Code）\nスキルは SKILL.md 一枚で定義する。frontmatter に name と description、本文は\n「いつ・何をするか」...",
+      "created_at": "Thu, 25 Jun 2026 05:31:50 GMT",
+      "author_id": "Isamu",
+      "author_handle": "Isamu",
+      "author_name": "Isamu",
+      "article_url": "https://zenn.dev/isamua/articles/mulmoclaude-zenn-skill",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "生成ai"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "生成ai",
+        "Claude",
+        "automation",
+        "Zenn"
+      ],
+      "passed_filter": true,
+      "rank": 18,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "MulmoClaude でやった作業を、そのまま Zenn の技術記事にして共有したい——という動機から、 「作業 → Zenn 記事」を自動化するスキルを作った。さらにそれを MulmoClaude 本体に同梱される システムスキルへ昇格させ、PR まで出した。この記事はその一連の流れと、途中で分かった スキルの仕組みをまとめたもの（実際この記事自体、作っ",
+      "japanese_summary": "MulmoClaude の作業を Zenn 記事化するスキルを作り、本体のシステムスキルにするまで",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_4e85bf067a2196",
+      "platform": "zenn",
+      "title": "生成AIを本番化する3層：推論基盤・データ処理・業務インターフェイス",
+      "text": "2026年6月24日に公開されたOpenAIとAWSの発表から、生成AIを本番サービスとして提供するために必要な構成を整理します。\n今回取り上げるのは、次の3つです。\n\n\n\n層\n事例\n\n\n\n\n推論基盤\nOpenAIとBroadcomによるLLM推論向け専用チップ\n\n\nデータ処理\nAWSによる4億件以上の文書からの機密情報マスキング\n\n\n業務インターフェイス\nAmazon Nova 2 Sonicによる医療予約音声エージェント\n\n\n\n!\n本記事は2026年6月24日に公開されたOpenAIとAWSの公式記事をもとに、生成AIの本番構成を整理したものです。\n\n\n 生成AIサービスを構成する3...",
+      "created_at": "Wed, 24 Jun 2026 22:40:40 GMT",
+      "author_id": "kenta",
+      "author_handle": "kenta",
+      "author_name": "kenta",
+      "article_url": "https://zenn.dev/kenta_kadowaki/articles/4e85bf067a2196",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "生成ai"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "content_value": 0,
+        "japan_fit": 5,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "生成ai",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 19,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "2026年6月24日に公開されたOpenAIとAWSの発表から、生成AIを本番サービスとして提供するために必要な構成を整理します。 今回取り上げるのは、次の3つです。 層 事例 推論基盤 OpenAIとBroadcomによるLLM推論向け専用チップ データ処理 AWSによる4億件以上の文書からの機密情報マスキング 業務インターフェイス Amazon Nova",
+      "japanese_summary": "生成AIを本番化する3層：推論基盤・データ処理・業務インターフェイス",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_956db488413f",
+      "platform": "zenn",
+      "title": "AmiVoiceの単語タイムスタンプとLLMで「やまびこスピーチ」を作った",
+      "text": "この記事は Zennfes Spring 2026 の「音声認識AmiVoice APIと生成AIで作る音声体験」への参加記事です。\nやまびこスピーチ というWebアプリを作りました。趣味でインプロ（即興演劇）をしていて、自分の口からポロっと出た言葉に引きずられる楽しさを簡単に味わってもらいたいと思って作りました。ランダムなお題について話すと、ラウンド2以降に、過去のやまびこがユーザー自身の声で聞こえてくる「フレーズで遊ぶ即興ループ」です。\n\n公開版のタイトル画面。AmiVoiceとClaudeを使う外部API構成で動かしています。\nこの記事では、AmiVoice APIをどう使い、認識...",
+      "created_at": "Fri, 26 Jun 2026 05:44:00 GMT",
+      "author_id": "matsu7874",
+      "author_handle": "matsu7874",
+      "author_name": "matsu7874",
+      "article_url": "https://zenn.dev/matsu7874/articles/956db488413f",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "llm"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "llm",
+        "Claude",
+        "Zenn"
+      ],
+      "passed_filter": true,
+      "rank": 20,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "この記事は Zennfes Spring 2026 の「音声認識AmiVoice APIと生成AIで作る音声体験」への参加記事です。 やまびこスピーチ というWebアプリを作りました。趣味でインプロ（即興演劇）をしていて、自分の口からポロっと出た言葉に引きずられる楽しさを簡単に味わってもらいたいと思って作りました。ランダムなお題について話すと、ラウンド2以降",
+      "japanese_summary": "AmiVoiceの単語タイムスタンプとLLMで「やまびこスピーチ」を作った",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_2026-06-tech-bar-21-report",
+      "platform": "zenn",
+      "title": "Nextbeat Tech Bar #21 開催レポート 〜コーディングエージェント実践活用〜",
+      "text": "\n はじめに\nこんにちは！株式会社ネクストビートでテクノロジー・エヴァンジェリストなる肩書きでお仕事をしている水島です。\n2026年6月19日、恵比寿の弊社東京本社で Nextbeat Tech Bar #21 を開催しました。テーマは 「コーディングエージェント実践活用」。Claude Code をはじめとするコーディングエージェントを、実務でどこまで・どう使っているのかを、現場のエンジニアが持ち寄る回になりました。\n私自身も登壇者の一人だったので、主催 &amp; 登壇の両方の立場から、当日の4つの発表をレポートします。\n\n\n イベント概要\nTech Bar は、弊社がおよそ隔月で開...",
+      "created_at": "Fri, 26 Jun 2026 01:06:37 GMT",
+      "author_id": "kmizu",
+      "author_handle": "kmizu",
+      "author_name": "kmizu",
+      "article_url": "https://zenn.dev/nextbeat/articles/2026-06-tech-bar-21-report",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "llm"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "llm",
+        "Claude",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 21,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "はじめに こんにちは！株式会社ネクストビートでテクノロジー・エヴァンジェリストなる肩書きでお仕事をしている水島です。 2026年6月19日、恵比寿の弊社東京本社で Nextbeat Tech Bar #21 を開催しました。テーマは 「コーディングエージェント実践活用」。Claude Code をはじめとするコーディングエージェントを、実務でどこまで・どう使",
+      "japanese_summary": "Nextbeat Tech Bar #21 開催レポート 〜コーディングエージェント実践活用〜",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_95abe23a3f88a6",
+      "platform": "zenn",
+      "title": "GLM-5.2はOpus 4.8の「安い代替」になるか？自作ベンチでタスクごとの費用対効果を測ってみた",
+      "text": "読了時間の目安：約3〜4分\nカタログ上の「リスト価格」だけでAIモデルを選んでいませんか？ 最新のオープンソースモデル「GLM-5.2」と「Opus 4.8」を徹底比較したところ、タスクの形状によってどちらが安くなるかが180度ひっくり返る、驚くべきコストの「逆転現象」が起きました。\n結論から言えば、ログ解析やリポジトリ検索のように「巨大なコードを1度だけ読んで抽出する」単発タスクでは、圧倒的な安さと速さでGLMの完全勝利です。しかし一方で、自律的なデバッグや複数ファイルのリファクタリングといった「状態を保持して何度もツールを叩く」エージェントループに入ると、Opusの強力な推論力とキャ...",
+      "created_at": "Thu, 25 Jun 2026 12:13:29 GMT",
+      "author_id": "David",
+      "author_handle": "David",
+      "author_name": "David",
+      "article_url": "https://zenn.dev/davidvl/articles/95abe23a3f88a6",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "aiagent"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 0,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "experiment",
+      "inferred_tags": [
+        "aiagent",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 22,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "読了時間の目安：約3〜4分 カタログ上の「リスト価格」だけでAIモデルを選んでいませんか？ 最新のオープンソースモデル「GLM-5.2」と「Opus 4.8」を徹底比較したところ、タスクの形状によってどちらが安くなるかが180度ひっくり返る、驚くべきコストの「逆転現象」が起きました。 結論から言えば、ログ解析やリポジトリ検索のように「巨大なコードを1度だけ読",
+      "japanese_summary": "GLM-5.2はOpus 4.8の「安い代替」になるか？自作ベンチでタスクごとの費用対効果を測ってみた",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_a2a-protocol-deep-dive-2026",
+      "platform": "zenn",
+      "title": "A2Aプロトコル徹底解説：エージェント間通信の標準規格がもたらす「AIエージェントのインターネット」",
+      "text": "\n A2A（Agent2Agent）プロトコル徹底解説：AIエージェント同士を繋ぐ新たな「HTTP」\nLangGraphで作成したエージェントとCrewAIで作成したエージェントが協調動作する時、あるいはカスタマーサポートエージェントが請求に関する問題をサードパーティの財務エージェントに委託する時、それらの間で「どのように対話し、どのようにタスクを分担し、どのようにリアルタイムに進捗を同期するか」を決定する共通の規格はあるでしょうか？\nGoogleと50以上の企業・団体が2025年4月に発表した、この問いに対する標準化の回答が**「A2A (Agent2Agent) プロトコル」**です...",
+      "created_at": "Wed, 24 Jun 2026 14:07:14 GMT",
+      "author_id": "lumichy",
+      "author_handle": "lumichy",
+      "author_name": "lumichy",
+      "article_url": "https://zenn.dev/lumichy/articles/a2a-protocol-deep-dive-2026",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "aiagent"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "aiagent",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 23,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "A2A（Agent2Agent）プロトコル徹底解説：AIエージェント同士を繋ぐ新たな「HTTP」 LangGraphで作成したエージェントとCrewAIで作成したエージェントが協調動作する時、あるいはカスタマーサポートエージェントが請求に関する問題をサードパーティの財務エージェントに委託する時、それらの間で「どのように対話し、どのようにタスクを分担し、どのよ",
+      "japanese_summary": "A2Aプロトコル徹底解説：エージェント間通信の標準規格がもたらす「AIエージェントのインターネット」",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_63ad0b47ddfc24",
+      "platform": "zenn",
+      "title": "[Mastra Announce] テンプレを使って一気にデプロイ！ Deployable Templates",
+      "text": "Mastra の公式Blogで公開された発表をもとに、何が変わったのか、誰に効くのか、どう始めればよいのかを分かりやすく整理します。直訳ではなく、関連ドキュメントと各テンプレートの README も合わせて見ながら、実際に使うときのイメージが湧くように補っています。\nMastra Announcements 速報解説一覧\n\n2026年6月22日、Mastra は Introducing deployable templates in Mastra platform を公開しました。\n\n\n公式アナウンス: https://mastra.ai/blog/introducing-deploya...",
+      "created_at": "Tue, 23 Jun 2026 23:07:26 GMT",
+      "author_id": "jun shiromizu",
+      "author_handle": "jun shiromizu",
+      "author_name": "jun shiromizu",
+      "article_url": "https://zenn.dev/shiromizuj/articles/63ad0b47ddfc24",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "aiagent"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 0,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "aiagent"
+      ],
+      "passed_filter": true,
+      "rank": 24,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "Mastra の公式Blogで公開された発表をもとに、何が変わったのか、誰に効くのか、どう始めればよいのかを分かりやすく整理します。直訳ではなく、関連ドキュメントと各テンプレートの README も合わせて見ながら、実際に使うときのイメージが湧くように補っています。 Mastra Announcements 速報解説一覧 2026年6月22日、Mastra ",
+      "japanese_summary": "[Mastra Announce] テンプレを使って一気にデプロイ！ Deployable Templates",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_670a47f12a743c",
+      "platform": "zenn",
+      "title": "UE5.8 MCP対応を試してみた — 実際にできること・できないことまとめ🤖",
+      "text": "\n UE5.8 MCP対応を試してみた — 実際にできること・できないことまとめ\nUnreal Engine 5.8（2026年6月17日リリース）でModel Context Protocol（MCP）が実験的機能として搭載されました。\n「AIがBlueprint書いてくれる！」という話題で盛り上がっていますが、実際に触ってみると現時点ではできないことも多いので、正直にまとめます。\n\n\n MCPとは\nMCP（Model Context Protocol）はAnthropicが策定したオープンな通信規格です。AIクライアント（Claude Code、Cursor、VSCodeなど）が外部...",
+      "created_at": "Thu, 25 Jun 2026 16:05:02 GMT",
+      "author_id": "UE5プラグイン図鑑",
+      "author_handle": "UE5プラグイン図鑑",
+      "author_name": "UE5プラグイン図鑑",
+      "article_url": "https://zenn.dev/ue5pluginjp/articles/670a47f12a743c",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "mcp"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 0,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "mcp",
+        "MCP",
+        "Claude",
+        "Cursor"
+      ],
+      "passed_filter": true,
+      "rank": 25,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "UE5.8 MCP対応を試してみた — 実際にできること・できないことまとめ Unreal Engine 5.8（2026年6月17日リリース）でModel Context Protocol（MCP）が実験的機能として搭載されました。 「AIがBlueprint書いてくれる！」という話題で盛り上がっていますが、実際に触ってみると現時点ではできないことも多いの",
+      "japanese_summary": "UE5.8 MCP対応を試してみた — 実際にできること・できないことまとめ🤖",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_b3a4d257487b82",
+      "platform": "zenn",
+      "title": "「似合うメイク」を見て選べる花嫁の美容指示書ジェネレーターを爆速開発｜YouCam API × Virtual Try-on × ADK",
+      "text": "\nZennコンテスト「YouCam APIを活用した実装事例とアイデア」応募記事です。\n\n\n TL;DR\n\n\n作ったもの：自撮り＋ドレス画像をエージェントに渡すと、似合うヘアメイクを可視化し、サロンに提出できる「美容指示書（画像付き）」を自動生成する AI エージェントを Claude Code を活用し3日で開発\n\n解決したい痛み：プレ花嫁のリアルな課題を解決（「自分に似合うメイクがわからない」「リハは1万円超」「担当ガチャ」）\n\n使った技術：\n\n\nビューティ：YouCam API（顔分析・パーソナルカラー・肌分析・バーチャルメイク試着）を MCP 経由で ADK エージェントに接続\n...",
+      "created_at": "Thu, 25 Jun 2026 00:57:43 GMT",
+      "author_id": "R🦊",
+      "author_handle": "R🦊",
+      "author_name": "R🦊",
+      "article_url": "https://zenn.dev/rrrrrrrrrrr/articles/b3a4d257487b82",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "mcp"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "mcp",
+        "MCP",
+        "Claude",
+        "agent",
+        "Zenn"
+      ],
+      "passed_filter": true,
+      "rank": 26,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "Zennコンテスト「YouCam APIを活用した実装事例とアイデア」応募記事です。 TL;DR 作ったもの：自撮り＋ドレス画像をエージェントに渡すと、似合うヘアメイクを可視化し、サロンに提出できる「美容指示書（画像付き）」を自動生成する AI エージェントを Claude Code を活用し3日で開発 解決したい痛み：プレ花嫁のリアルな課題を解決（「自分に",
+      "japanese_summary": "「似合うメイク」を見て選べる花嫁の美容指示書ジェネレーターを爆速開発｜YouCam API × Virtual Try-on × ADK",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_a6505c2461b390",
+      "platform": "zenn",
+      "title": "エージェント設定に「package.json」が来た ― Microsoft APM(Agent Package Manager)の将来性と",
+      "text": "\n はじめに\nきっかけは、社内の別施策でAPM（Agent Package Manager）を使用している事例を見たことだった。便利そうな印象は受けたものの、具体的なイメージは湧いていなかった。そこで実際に調べて触ってみると、普段抱えていた二つの悩みが解けた。\n一つは、複数プロダクトで Claude Code を使うようになって、プロダクトごとに同じ Skill や MCP 設定をコピペで配って回る作業。もう一つは、Devcontainer 環境でローカルの Claude 設定をマウントすると競合が起きる、という地味だが厄介な問題だった。\nこの記事は導入手順そのものよりも、「なぜ今 AP...",
+      "created_at": "Thu, 25 Jun 2026 00:00:16 GMT",
+      "author_id": "m.okamura",
+      "author_handle": "m.okamura",
+      "author_name": "m.okamura",
+      "article_url": "https://zenn.dev/sonicmoov/articles/a6505c2461b390",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "mcp"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 5,
+        "total": 15
+      },
+      "category": "other",
+      "inferred_tags": [
+        "mcp",
+        "MCP",
+        "Claude",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 27,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "はじめに きっかけは、社内の別施策でAPM（Agent Package Manager）を使用している事例を見たことだった。便利そうな印象は受けたものの、具体的なイメージは湧いていなかった。そこで実際に調べて触ってみると、普段抱えていた二つの悩みが解けた。 一つは、複数プロダクトで Claude Code を使うようになって、プロダクトごとに同じ Skill",
+      "japanese_summary": "エージェント設定に「package.json」が来た ― Microsoft APM(Agent Package Manager)の将来性と",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_mcp-jp-connector-curation",
+      "platform": "zenn",
+      "title": "MCPコネクタは数時間で書ける。難しいのは「作らない判断」と「公式が出たら畳む運用」だった",
+      "text": "\n TL;DR\n\n日本の SMB 向け SaaS で公式 MCP が存在しないものだけを対象にしたコネクタ集 mcp-jp を OSS 公開しています（独自実装 30+）。\nREST API さえあれば、MCP コネクタ自体は数時間で書けます。本数は差別化になりません。\n本当に消耗するのは「需要がないものを作る」「いずれ公式が出るものを今作る」の 2 つでした。これを人の記憶に頼らず仕組みで止めるのが設計の主題になりました。\nそのために導入したのが (1) 着手前の候補選定マトリクス (2) 公式 MCP との重複を CI で落とす巡回チェック (3) 公式が出たコネクタを archiv...",
+      "created_at": "Wed, 24 Jun 2026 16:06:27 GMT",
+      "author_id": "medium_cbsc",
+      "author_handle": "medium_cbsc",
+      "author_name": "medium_cbsc",
+      "article_url": "https://zenn.dev/mediiiiium/articles/mcp-jp-connector-curation",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "mcp"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "content_value": 0,
+        "japan_fit": 5,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "mcp",
+        "MCP",
+        "SaaS"
+      ],
+      "passed_filter": true,
+      "rank": 28,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "TL;DR 日本の SMB 向け SaaS で公式 MCP が存在しないものだけを対象にしたコネクタ集 mcp-jp を OSS 公開しています（独自実装 30+）。 REST API さえあれば、MCP コネクタ自体は数時間で書けます。本数は差別化になりません。 本当に消耗するのは「需要がないものを作る」「いずれ公式が出るものを今作る」の 2 つでした。こ",
+      "japanese_summary": "MCPコネクタは数時間で書ける。難しいのは「作らない判断」と「公式が出たら畳む運用」だった",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_38f0b9d4e4b1fa",
+      "platform": "zenn",
+      "title": "AI専用動画編集ツールにクロスフェードを足したら、動画が0.5秒『短く』なった — clipwright v0.16〜v0.17",
+      "text": "\nclipwright GitHub: https://github.com/satoh-y-0323/clipwright / PyPI: https://pypi.org/project/clipwright/ / v0.17.0 リリース: https://github.com/satoh-y-0323/clipwright/releases/tag/v0.17.0\n前回記事: AI専用動画編集ツールにGPU文字起こしを足したら、whisperはCPUでも『GPU使用』と自己申告してきた\n本記事のスコープ: CLI も GUI もなく AI エージェントだけが使う動画編集 MCP ...",
+      "created_at": "Tue, 23 Jun 2026 23:41:47 GMT",
+      "author_id": "satoh-y-0323",
+      "author_handle": "satoh-y-0323",
+      "author_name": "satoh-y-0323",
+      "article_url": "https://zenn.dev/satoh_y_0323/articles/38f0b9d4e4b1fa",
+      "source_url": "https://github.com/satoh-y-0323/clipwright",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "mcp"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "mcp",
+        "MCP",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 29,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "clipwright GitHub: / PyPI: / v0.17.0 リリース: 前回記事: AI専用動画編集ツールにGPU文字起こしを足したら、whisperはCPUでも『GPU使用』と自己申告してきた 本記事のスコープ: CLI も GUI もなく AI エージェントだけが使う動画編集 MCP ...",
+      "japanese_summary": "AI専用動画編集ツールにクロスフェードを足したら、動画が0.5秒『短く』なった — clipwright v0.16〜v0.17",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
+    },
+    {
+      "id": "zenn_bceb809ac568ac",
+      "platform": "zenn",
+      "title": "スマホからワンタップで全自動日記投稿！iOSショートカットとDify APIを連携させた話（Day 2）",
+      "text": "\n 背景と概要\n前回構築した「Dify + Whisper + Gemini」による全自動の日記・議事録システムは、スプレッドシートへの保存まで完璧に動くようになった。\nしかし、実際に日常使いするにあたって「いちいちスマホのボイスメモで録音し、保存した音声ファイルをDifyのブラウザ画面からアップロードする」という手間が非常に面倒だった。\nそこで今回は、PCだけでなく**「スマホからワンタップで直接日記を投稿できる」**シームレスな体験を作るため、iPhoneの標準アプリである「ショートカット」を使用してシステムをアップデートした。\n\n 今回の実装で得られたメリット\n\n 1. 録音から処...",
+      "created_at": "Mon, 22 Jun 2026 16:27:51 GMT",
+      "author_id": "ぞかし",
+      "author_handle": "ぞかし",
+      "author_name": "ぞかし",
+      "article_url": "https://zenn.dev/zokashi/articles/bceb809ac568ac",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      },
+      "tags": [
+        "dify"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "content_value": 0,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "dify",
+        "Dify"
+      ],
+      "passed_filter": true,
+      "rank": 30,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff",
+      "english_summary": "背景と概要 前回構築した「Dify + Whisper + Gemini」による全自動の日記・議事録システムは、スプレッドシートへの保存まで完璧に動くようになった。 しかし、実際に日常使いするにあたって「いちいちスマホのボイスメモで録音し、保存した音声ファイルをDifyのブラウザ画面からアップロードする」という手間が非常に面倒だった。 そこで今回は、PCだけ",
+      "japanese_summary": "スマホからワンタップで全自動日記投稿！iOSショートカットとDify APIを連携させた話（Day 2）",
+      "why_it_matters": "High-signal content from the Japanese AI developer community."
     }
   ]
 }
