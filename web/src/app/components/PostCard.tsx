@@ -28,9 +28,10 @@ export default function PostCard({ post, isSelected, isBookmarked, categoryLabel
   return (
     <button
       onClick={onClick}
+      style={isSelected ? { backgroundColor: "#f0f9f9", borderLeftColor: "#1a6b6b" } : {}}
       className={`w-full text-left px-4 py-3.5 transition-colors group focus:outline-none ${
         isSelected
-          ? "bg-blue-50 border-l-2 border-blue-500"
+          ? "border-l-2"
           : "border-l-2 border-transparent hover:bg-gray-50"
       }`}
     >
@@ -65,7 +66,7 @@ export default function PostCard({ post, isSelected, isBookmarked, categoryLabel
       </div>
 
       {/* Title */}
-      <p className={`text-xs font-semibold leading-snug mb-1 line-clamp-2 ${isSelected ? "text-blue-900" : "text-gray-900"}`}>
+      <p className={`text-xs font-semibold leading-snug mb-1 line-clamp-2 ${isSelected ? "text-gray-900" : "text-gray-900"}`}>
         {post.title}
       </p>
 

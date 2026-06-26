@@ -81,9 +81,9 @@ export default function ExplainerPanel({ post, categoryLabel, isBookmarked, onBo
       </div>
 
       {/* ── Why it matters ──────────────────────────────────────────────── */}
-      <div className="bg-blue-50 rounded-xl border border-blue-100 p-4">
-        <p className="text-xs font-medium text-blue-600 uppercase tracking-wide mb-2">Why it matters</p>
-        <p className="text-sm text-blue-900 leading-relaxed">{post.why_it_matters}</p>
+      <div className="rounded-xl border p-4" style={{ backgroundColor: "#f0f9f9", borderColor: "#b2d8d8" }}>
+        <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "#1a6b6b" }}>Why it matters</p>
+        <p className="text-sm leading-relaxed" style={{ color: "#134f4f" }}>{post.why_it_matters}</p>
       </div>
 
       {/* ── Tags ────────────────────────────────────────────────────────── */}
