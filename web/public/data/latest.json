@@ -1,126 +1,116 @@
 {
   "date": "2026-06-26",
-  "generated_at": "2026-06-26T03:26:00.753Z",
-  "is_mock": true,
+  "generated_at": "2026-06-26T09:32:58.106Z",
+  "is_mock": false,
   "sources": [
-    "zenn",
-    "note",
-    "qiita"
+    "qiita",
+    "zenn"
   ],
-  "total_scanned": 8,
-  "passed_filter": 5,
+  "total_scanned": 224,
+  "passed_filter": 44,
   "posts": [
     {
-      "id": "zenn_mcp_notion_agent",
-      "platform": "zenn",
-      "title": "Claude MCPでNotionを操作するAIエージェントを100行で作る",
-      "text": "MCP（Model Context Protocol）を使ってClaude DesktopからNotionデータベースを直接操作するエージェントを構築しました。セットアップから動作確認まで全手順を解説します。GitHubリポジトリも公開中: https://github.com/example/mcp-notion-agent",
-      "created_at": "2026-06-26T01:25:59.510Z",
-      "author_id": "yuki_builder",
-      "author_handle": "yuki_builder",
-      "author_name": "Yuki / AIビルダー",
-      "article_url": "https://zenn.dev/yuki_builder/articles/mcp-notion-agent",
-      "source_url": "https://github.com/example/mcp-notion-agent",
+      "id": "qiita_b07497034870b453a46b",
+      "platform": "qiita",
+      "title": "faster-whisper + Ollama でローカル議事録パイプラインを作った——VAD・セグメントフィルタ・タイムアウト処理まで",
+      "text": "![ヒーロー画像](https://cdn-ak.f.st-hatena.com/images/fotolife/a/amanity/20260626/20260626120615.jpg)\n\n## TL;DR\n\n- 会議録音ファイル（MP3/WAV/M4A）を入力すると、書き起こし〜議事録 Markdown 生成まで自動処理するパイプラインを作りました\n- コアコンポーネントは **faster-whisper**（音声書き起こし）と **Ollama**（ローカル LLM による議事録生成）の 2 本立てで、データがマシン外に出ません\n- 本番運用で踏んだ主な落とし穴は「長い音声でのメモリ圧迫」「相槌・断片発話のノイズ混入」「固有名詞の誤認識」「Ollama のタイムアウト」の 4 つです\n- この記事のコードはそのままコピーして使えます（`pip install faster-whisper ollama` の後に動作確認済み）\n- 導入背景・ビジネス上の意義・モデル比較の詳細は本家記事を参照してください: https://amanity.co.jp/news/whisper-o",
+      "created_at": "2026-06-26T11:56:00+09:00",
+      "author_id": "amanity-haray",
+      "author_handle": "amanity-haray",
+      "author_name": "",
+      "article_url": "https://qiita.com/amanity-haray/items/b07497034870b453a46b",
+      "source_url": "https://github.com/snakers4/silero-vad",
       "metrics": {
-        "likes": 312,
-        "comments": 24
+        "likes": 0
       },
       "tags": [
-        "MCP",
-        "Claude",
-        "Notion",
-        "AIエージェント"
+        "Python",
+        "音声処理",
+        "LLM",
+        "faster-whisper",
+        "ollama"
       ],
-      "english_summary": "Step-by-step guide to building a Claude MCP agent that directly operates Notion databases in under 100 lines of code.",
-      "japanese_summary": "Claude MCPでNotionを操作するエージェントを100行以下で構築する全手順を解説。",
-      "why_it_matters": "MCP integration patterns are becoming the standard for AI-to-SaaS automation — this is a directly reusable pattern for Seranova client workflows.",
       "scores": {
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
         "relevance": 5,
-        "japan_fit": 0,
-        "total": 20
+        "japan_fit": 5,
+        "total": 25
       },
-      "category": "new_tool",
+      "category": "workflow_demo",
       "inferred_tags": [
-        "MCP",
-        "Claude",
-        "Notion",
-        "AIエージェント",
-        "agent"
+        "Python",
+        "音声処理",
+        "LLM",
+        "faster-whisper",
+        "ollama"
       ],
       "passed_filter": true,
       "rank": 1,
-      "platform_label": "Zenn",
-      "platform_color": "#3ea8ff"
+      "english_summary": "Fully local meeting transcription-to-minutes pipeline using faster-whisper for audio transcription and Ollama (local LLM) for summarization — covering VAD, segment filtering, and timeout handling end-to-end.",
+      "japanese_summary": "faster-whisper+Ollamaで録音ファイルから議事録Markdownを自動生成するローカル完結パイプライン。",
+      "why_it_matters": "No API costs, no data leaves the org — directly pitchable to Japanese enterprise clients who cannot send audio to cloud APIs for compliance reasons.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
     },
     {
-      "id": "note_ai_startup_smb",
-      "platform": "note",
-      "title": "資金調達なしで日本のSMB向けAI導入支援を始めた理由",
-      "text": "AIスタートアップを創業して3ヶ月が経ちました。資金調達せず、最初から収益化を目指した理由と、中小企業へのAI導入支援で学んだことをまとめます。",
-      "created_at": "2026-06-25T03:25:59.511Z",
-      "author_id": "kenji_ai_founder",
-      "author_handle": "kenji_ai_founder",
-      "author_name": "Kenji | AI startup",
-      "article_url": "https://note.com/kenji_ai_founder/n/ai-startup-smb-japan",
-      "source_url": "https://example-startup.jp",
+      "id": "zenn_52dd66555742c0",
+      "platform": "zenn",
+      "title": "既存システムへAIを組み込む3つのパターン：REST API・運用データ・映像資産",
+      "text": "2026年6月25日にAWSが公開した記事から、既存システムやデータへAIを追加する3つのパターンを整理します。\n今回取り上げるのは、次の事例です。\n\n\n\n既存資産\nAIの追加方法\n\n\n\n\nREST API\nAgentic OverlayでA2AとMCPへ対応\n\n\nAWS Healthのイベント\nMCP対応AIエージェントで自然言語分析\n\n\n低解像度の映像\nSageMaker AI上のSeedVR2で高解像度化\n\n\n\n\n パターン1：REST APIをエージェントから再利用する\n企業システムでは、業務機能がREST APIとして公開されていることがあります。\nREST APIは決定的なリ...",
+      "created_at": "Thu, 25 Jun 2026 22:30:41 GMT",
+      "author_id": "kenta",
+      "author_handle": "kenta",
+      "author_name": "kenta",
+      "article_url": "https://zenn.dev/kenta_kadowaki/articles/52dd66555742c0",
       "metrics": {
-        "likes": 178
+        "likes": 0,
+        "comments": 0
       },
       "tags": [
-        "AIスタートアップ",
-        "中小企業",
-        "AI導入",
-        "起業"
+        "生成ai"
       ],
-      "english_summary": "A founder shares 3 months of learnings building a bootstrapped AI adoption consultancy for Japanese SMBs, with candid notes on what actually works.",
-      "japanese_summary": "資金調達なしでSMB向けAI導入支援スタートアップを3ヶ月運営した学びを公開。",
-      "why_it_matters": "A direct competitor/peer in the JP AI consulting space — good to watch their positioning and pricing signals.",
       "scores": {
-        "novelty": 0,
+        "novelty": 5,
         "practicality": 5,
-        "evidence": 5,
+        "evidence": 0,
         "relevance": 5,
         "japan_fit": 5,
         "total": 20
       },
-      "category": "founder_announcement",
+      "category": "new_tool",
       "inferred_tags": [
-        "AIスタートアップ",
-        "中小企業",
-        "AI導入",
-        "起業"
+        "生成ai",
+        "MCP",
+        "Make",
+        "agent"
       ],
       "passed_filter": true,
       "rank": 2,
-      "platform_label": "Note",
-      "platform_color": "#41c9b4"
+      "english_summary": "AWS framework for adding AI to existing systems via three patterns: Agentic Overlay on REST APIs (A2A/MCP), MCP-enabled agents for AWS Health event analysis, and SageMaker video upscaling.",
+      "japanese_summary": "既存REST API・運用データ・映像資産へAIを追加するAWSの3パターン整理。",
+      "why_it_matters": "Concrete enterprise AI integration patterns backed by AWS — strong reference material for Seranova client proposals on AI adoption strategy.",
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff"
     },
     {
-      "id": "qiita_rag_eval_japanese",
-      "platform": "qiita",
-      "title": "日本語RAGの精度評価指標と改善手法まとめ2026",
-      "text": "日本語でRAGシステムを構築する際の精度評価方法と、よく起きる問題（チャンク分割、ベクトル化、リランキング）への対処法をまとめました。実験結果のデータも公開します。",
-      "created_at": "2026-06-24T15:25:59.511Z",
-      "author_id": "llm_researcher_jp",
-      "author_handle": "llm_researcher_jp",
-      "author_name": "LLM Researcher JP",
-      "article_url": "https://qiita.com/llm_researcher_jp/items/rag-eval-japanese-2026",
+      "id": "zenn_mcp-jp-connector-curation",
+      "platform": "zenn",
+      "title": "MCPコネクタは数時間で書ける。難しいのは「作らない判断」と「公式が出たら畳む運用」だった",
+      "text": "\n TL;DR\n\n日本の SMB 向け SaaS で公式 MCP が存在しないものだけを対象にしたコネクタ集 mcp-jp を OSS 公開しています（独自実装 30+）。\nREST API さえあれば、MCP コネクタ自体は数時間で書けます。本数は差別化になりません。\n本当に消耗するのは「需要がないものを作る」「いずれ公式が出るものを今作る」の 2 つでした。これを人の記憶に頼らず仕組みで止めるのが設計の主題になりました。\nそのために導入したのが (1) 着手前の候補選定マトリクス (2) 公式 MCP との重複を CI で落とす巡回チェック (3) 公式が出たコネクタを archiv...",
+      "created_at": "Wed, 24 Jun 2026 16:06:27 GMT",
+      "author_id": "medium_cbsc",
+      "author_handle": "medium_cbsc",
+      "author_name": "medium_cbsc",
+      "article_url": "https://zenn.dev/mediiiiium/articles/mcp-jp-connector-curation",
       "metrics": {
-        "likes": 298,
-        "comments": 22
+        "likes": 0,
+        "comments": 0
       },
       "tags": [
-        "RAG",
-        "LLM",
-        "日本語",
-        "評価"
+        "mcp"
       ],
-      "english_summary": "A 2026 benchmark of evaluation metrics and improvement techniques for Japanese-language RAG systems, with published experimental data on chunking, vectorization, and reranking.",
-      "japanese_summary": "日本語RAGの精度評価指標と改善手法（チャンク・ベクトル化・リランキング）の2026年まとめ。",
-      "why_it_matters": "Essential reference if any Seranova client projects involve Japanese document RAG — saves weeks of trial and error.",
       "scores": {
         "novelty": 5,
         "practicality": 5,
@@ -131,105 +121,340 @@
       },
       "category": "new_tool",
       "inferred_tags": [
-        "RAG",
-        "LLM",
-        "日本語",
-        "評価"
+        "mcp",
+        "MCP",
+        "SaaS"
       ],
       "passed_filter": true,
       "rank": 3,
-      "platform_label": "Qiita",
-      "platform_color": "#55c500"
+      "english_summary": "A developer who open-sourced 30+ MCP connectors for Japanese SMB SaaS tools shares the hard lessons: building connectors is fast, but deciding what NOT to build (things that will get official support) is the real skill.",
+      "japanese_summary": "日本SMB向けSaaS 30+のMCPコネクタOSSを公開した筆者が「作らない判断」の重要性を解説。",
+      "why_it_matters": "Relevant to any MCP toolchain work — the \"don't build what will go official\" lesson prevents real engineering waste, and the OSS library itself is worth bookmarking.",
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff"
     },
     {
-      "id": "qiita_n8n_slack_notion_cal",
+      "id": "qiita_ff24347d28dcd9b7639d",
       "platform": "qiita",
-      "title": "n8nでSlack→Notion→Googleカレンダーの3-way自動同期を構築した全記録",
-      "text": "会議メモをSlackで受け取り、Notionにタスクとして保存し、Googleカレンダーに自動登録するn8nワークフローを本番稼働させました。ワークフローのJSONもGitHubで公開します。https://github.com/example/n8n-3way-sync",
-      "created_at": "2026-06-25T22:25:59.511Z",
-      "author_id": "masato_automate",
-      "author_handle": "masato_automate",
-      "author_name": "Masato | 自動化エンジニア",
-      "article_url": "https://qiita.com/masato_automate/items/n8n-3way-sync",
-      "source_url": "https://github.com/example/n8n-3way-sync",
+      "title": "AIツール、何を使っていますか？ ― GAS×Geminiなら無料で手書き帳票をAI-OCR、スプレッドシートへ自動入力",
+      "text": ":::note info\n本記事は PROMPT-X 技術ブログ（[blog.prompt-x.jp](https://blog.prompt-x.jp/post/gas-gemini-で手書き帳票をai-ocr-―-スプレッドシートに自動入力する)）に掲載した内容をQiita用に再構成したものです。\n:::\n\n業務でAIを使おうとすると、まず「どのツールを入れるか」で悩みがちです。ワークフロー自動化ならDifyやn8n、コーディングや業務自動化ならAnthropicのClaude Code / Claude Cowork、OpenAIのCodex——選択肢は年々増えています。\n\nですが、新しいツールをわざわざ導入しなくても、すでに多くの現場で使い慣れている **GAS（Google Apps Script）だけでAIを活用できます**。GASはGoogleアカウントがあれば**無料**で使えるサーバーレスの実行環境で、`UrlFetchApp`で外部APIをそのまま叩けるため、Gemini APIもそのまま呼び出せます。スプレッドシートやドライブとの連携も標準で備わっているので、「撮",
+      "created_at": "2026-06-26T16:17:50+09:00",
+      "author_id": "y_nakahira_prompt-x",
+      "author_handle": "y_nakahira_prompt-x",
+      "author_name": "中平 善文",
+      "article_url": "https://qiita.com/y_nakahira_prompt-x/items/ff24347d28dcd9b7639d",
       "metrics": {
-        "likes": 189,
-        "comments": 18
+        "likes": 0
       },
       "tags": [
-        "n8n",
-        "Notion",
-        "Slack",
-        "GoogleCalendar",
-        "自動化"
+        "GoogleAppsScript",
+        "spreadsheet",
+        "OCR",
+        "Gemini",
+        "生成AI"
       ],
-      "english_summary": "Complete walkthrough of an n8n workflow that syncs Slack meeting notes → Notion tasks → Google Calendar events automatically.",
-      "japanese_summary": "Slack会議メモをNotionタスク化しGoogleカレンダーへ自動連携するn8nワークフローの全記録。",
-      "why_it_matters": "This 3-way sync pattern solves a real pain point in Japanese SMB ops — good template for a Crossteria-style client pitch.",
       "scores": {
         "novelty": 5,
-        "practicality": 0,
-        "evidence": 5,
-        "relevance": 5,
-        "japan_fit": 0,
-        "total": 15
-      },
-      "category": "new_tool",
-      "inferred_tags": [
-        "n8n",
-        "Notion",
-        "Slack",
-        "GoogleCalendar",
-        "自動化"
-      ],
-      "passed_filter": true,
-      "rank": 4,
-      "platform_label": "Qiita",
-      "platform_color": "#55c500"
-    },
-    {
-      "id": "zenn_claude_api_jp_prompt",
-      "platform": "zenn",
-      "title": "Claude APIで日本語出力品質を上げる7つのプロンプトパターン",
-      "text": "Claude APIを使って日本語ビジネス文書を生成する際に効果的だったプロンプトパターンをまとめました。敬語モード、箇条書き強制、出力長コントロールなど実務で使えるテクニックを網羅。",
-      "created_at": "2026-06-25T15:25:59.511Z",
-      "author_id": "prompt_lab_jp",
-      "author_handle": "prompt_lab_jp",
-      "author_name": "Prompt Lab JP",
-      "article_url": "https://zenn.dev/prompt_lab_jp/articles/claude-jp-prompt-patterns",
-      "metrics": {
-        "likes": 567,
-        "comments": 41
-      },
-      "tags": [
-        "Claude",
-        "プロンプト",
-        "日本語",
-        "LLM"
-      ],
-      "english_summary": "Seven battle-tested prompt patterns for getting Claude to produce high-quality Japanese business documents, covering honorifics mode, formatting control, and output length.",
-      "japanese_summary": "Claude APIで日本語ビジネス文書を生成するための実務プロンプトパターン7選。",
-      "why_it_matters": "Directly applicable to Seranova's client-facing deliverables and blog — saves real prompt engineering time.",
-      "scores": {
-        "novelty": 0,
         "practicality": 5,
         "evidence": 0,
         "relevance": 5,
         "japan_fit": 5,
-        "total": 15
+        "total": 20
       },
-      "category": "prompt_template",
+      "category": "workflow_demo",
       "inferred_tags": [
+        "GoogleAppsScript",
+        "spreadsheet",
+        "OCR",
+        "Gemini",
+        "生成AI",
         "Claude",
-        "プロンプト",
-        "日本語",
-        "LLM",
-        "prompt"
+        "Dify",
+        "n8n",
+        "automation",
+        "Qiita"
+      ],
+      "passed_filter": true,
+      "rank": 4,
+      "english_summary": "Step-by-step guide to building a free AI-OCR system using Google Apps Script and Gemini to automatically read handwritten Japanese forms and push data into Google Sheets — no paid APIs needed.",
+      "japanese_summary": "GAS×Geminiで手書き帳票をAI-OCRしてスプレッドシートへ自動入力する無料構築ガイド。",
+      "why_it_matters": "Practical zero-cost automation for a very common Japanese SMB pain point (paper forms). Good concrete demo for Seranova's AI audit and advisory pitches.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_615ef6d15aef2f661023",
+      "platform": "qiita",
+      "title": "「社長からのメール」が偽物かもしれない時代　AI詐欺を見抜く方法【AI安全活用ガイド #2】",
+      "text": "> **連載：AI安全活用ガイド 初級編（全3回）**\n> - [#1 AIに何を話している？個人利用で知っておきたいリスクの基本](https://qiita.com/keiichik_kk/items/c19d6678063d08eff672)\n> - **#2 AI時代の「なりすまし」詐欺を見抜く** ← 今ここ\n> - #3 AIツールを選ぶ・設定する・ルールを持つ　個人ガバナンスの始め方\n\n# はじめに\n\nフィッシング詐欺はずっと前から存在していました。でも以前の詐欺メールには「日本語がおかしい」「URLが明らかに変」という分かりやすい特徴がありました。**AIはその「粗さ」を消してしまいました**。\n\n今、詐欺師はAIを使って流暢な日本語のメールを大量生成し、あなたの声に似たクローン音声を作り、知人の顔をビデオ通話に使います。本記事では、これら新世代の脅威と、それでも有効な対策を説明します。\n\n---\n\n# AI時代に増えている3つの手口\n\n## ① AIフィッシングメール（急増中）\n\n**使われる技術：大規模言語モデル（LLM）による文章生成**\n\nあなたのSNSや公開情",
+      "created_at": "2026-06-26T14:52:02+09:00",
+      "author_id": "keiichik_kk",
+      "author_handle": "keiichik_kk",
+      "author_name": "",
+      "article_url": "https://qiita.com/keiichik_kk/items/615ef6d15aef2f661023",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "Security",
+        "AI",
+        "フィッシング詐欺",
+        "生成AI",
+        "詐欺対策"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "Security",
+        "AI",
+        "フィッシング詐欺",
+        "生成AI",
+        "詐欺対策"
       ],
       "passed_filter": true,
       "rank": 5,
-      "platform_label": "Zenn",
-      "platform_color": "#3ea8ff"
+      "english_summary": "Part 2 of a 3-part AI safety guide focused on detecting AI-generated impersonation scams — specifically fake executive emails — with practical verification methods for individuals and businesses.",
+      "japanese_summary": "AI生成なりすまし詐欺（偽社長メール等）の見分け方と防御手法を解説するAI安全活用ガイド第2回。",
+      "why_it_matters": "Client education on AI risk is increasingly part of advisory scope in Japan — this gives Seranova a concrete talking point for SMB AI audit engagements.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_19728db51737d9a315a6",
+      "platform": "qiita",
+      "title": "LLMセキュリティの死角：意味レイヤーを狙う4つの攻撃ベクター",
+      "text": "## はじめに\n\nファイアウォールを設定した。エンドポイントにEDRを入れた。ゼロトラストも導入済み。\nそれでも**LLMエージェントは止められない**。\n\nなぜか。守っている場所が違うからだ。\n\nこの記事では、既存のセキュリティフレームワーク（OWASP・NIST・ISO）が\nカバーできていない**意味レイヤー**への攻撃と、その防御設計を解説する。\n\n**対象読者：**\n- LLM / ChatGPT / Claude / Gemini / AIエージェントを業務で使っている\n- セキュリティの専門家ではないが、AIの安全な運用に関心がある\n- プロンプトエンジニアリングに取り組んでいる技術者\n\n**この記事で得られること：**\n- 意味レイヤーへの4つの攻撃ベクタの全体像\n- SIF（Semantic Integrity Framework）による3層防御設計の手順\n- 5分で使える自分のプロンプトの診断チェックリスト\n\n---\n\n## 前提：既存フレームワークが守れていない場所がある\n\n現在の企業セキュリティスタックが守れる層は3つだ。\n\n| 層 | 技術 |\n|---|---",
+      "created_at": "2026-06-26T16:00:54+09:00",
+      "author_id": "akx1xra",
+      "author_handle": "akx1xra",
+      "author_name": "AK1RA",
+      "article_url": "https://qiita.com/akx1xra/items/19728db51737d9a315a6",
+      "source_url": "https://github.com/ak1xra/llm-semantic-security",
+      "metrics": {
+        "likes": 1
+      },
+      "tags": [
+        "Security",
+        "LLM",
+        "プロンプトエンジニアリング",
+        "AIエージェント",
+        "LLMSecurity"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "prompt_template",
+      "inferred_tags": [
+        "Security",
+        "LLM",
+        "プロンプトエンジニアリング",
+        "AIエージェント",
+        "LLMSecurity",
+        "Claude",
+        "GPT",
+        "agent",
+        "prompt"
+      ],
+      "passed_filter": true,
+      "rank": 6,
+      "english_summary": "Exposes four LLM attack vectors targeting the \"semantic layer\" — the gap that existing OWASP, NIST, and ISO frameworks miss when applied to LLM agents — with defensive design patterns.",
+      "japanese_summary": "既存セキュリティフレームワークが見落とすLLMエージェントの意味レイヤーへの4つの攻撃ベクターと防御設計。",
+      "why_it_matters": "Essential for any client deploying LLM agents in production. Helps Seranova deliver credible, specific AI risk assessments beyond generic compliance checklists.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_90c17b141f26ca2487c7",
+      "platform": "qiita",
+      "title": "1つのモデルを選ぶのをやめる、vLLM Semantic RouterのFusion",
+      "text": "「このリクエストはどのモデルに投げるべきか」。LLMルーティングの議論はずっとこの問いを中心に回ってきた。安いモデルで足りるか、それとも高いモデルにエスカレーションするか。要は1リクエストにつき1モデルを選ぶ、という前提だった。\n\nvLLMプロジェクトが6月16日に公開した [Fusion](https://vllm.ai/blog/2026-06-16-vllm-sr-fusion-api) は、その前提を外しにきている。1つ選ぶのではなく、複数のモデルに同じリクエストを同時に答えさせ、別のモデルがそれらを突き合わせて1つの回答に束ねる。発想自体は研究界隈で言うMixture-of-Agentsに近いが、これを推論サーバの「ルーター」の機能として、設定ファイル数行で本番運用に乗せられる形にしたのが今回の肝だ。\n\n## 🔀 そもそもvLLM Semantic Routerとは何か\n\nFusionの前提として、土台になっている [vLLM Semantic Router](https://github.com/vllm-project/semantic-router)(以下SR)を押さ",
+      "created_at": "2026-06-26T13:39:53+09:00",
+      "author_id": "okssusucha",
+      "author_handle": "okssusucha",
+      "author_name": "",
+      "article_url": "https://qiita.com/okssusucha/items/90c17b141f26ca2487c7",
+      "source_url": "https://github.com/vllm-project/semantic-router",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "機械学習",
+        "インフラ",
+        "AI",
+        "LLM",
+        "vLLM"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "機械学習",
+        "インフラ",
+        "AI",
+        "LLM",
+        "vLLM"
+      ],
+      "passed_filter": true,
+      "rank": 7,
+      "english_summary": "Explains vLLM's new Fusion API (June 2026), which moves beyond routing — instead of choosing one model per request, it blends outputs from multiple models simultaneously.",
+      "japanese_summary": "vLLM Fusionはモデルをルーティングするのではなくリクエストごとに複数モデルの出力を融合する新API。",
+      "why_it_matters": "Signals a shift in LLM infrastructure from single-model routing to ensemble blending — worth watching for clients building multi-model or cost-optimized AI pipelines.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_2cdbfabe4494182e7659",
+      "platform": "qiita",
+      "title": "無料枠ベクトルDB4本、精度は横並び——本当の差は「無料枠がどこで最初に詰まるか」だった（Supabase / Qdrant / Turso / Cloudflare 実測）",
+      "text": "> Qiita Tech Festa 2026 のお題「**AI時代のデータベース、何が変わる？**」に、**無料枠 × DB横断 × 再現可能な実測**という角度から答えます。\n> 対象: **Supabase(pgvector) / Qdrant Cloud / Turso(libSQL) / Cloudflare Vectorize**。データセット BEIR ArguAna(8,674文書)。ローカルCPUのみ・完全無料。\n> **測定器の故障や自分の勘違い（Qdrantが実は総当たりだった等）も含め、訂正の過程を全部公開します**（§8）。\n\n## 30秒でわかる結論（専門用語なし）\n\n無料で使えるベクトルデータベース4つに、**まったく同じ「検索の仕事」**をやらせて比べました。すると——**どれを使っても検索の精度はほぼ同じ**でした。\nでは何が違うのか。**「無料の上限に、どこが最初にぶつかるか」がDBごとにバラバラ**だったのです。あるDBは保存容量、別のDBはメモリ、別のDBは\"検索を速くするための索引\"が何十倍にも膨らんで容量を、別のDBは\"保存できる量そのものの",
+      "created_at": "2026-06-26T17:05:56+09:00",
+      "author_id": "axiompro70",
+      "author_handle": "axiompro70",
+      "author_name": "",
+      "article_url": "https://qiita.com/axiompro70/items/2cdbfabe4494182e7659",
+      "source_url": "https://github.com/axiom-pro/free-tier-vectordb-bench",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "cloudflare",
+        "rag",
+        "Supabase",
+        "Qdrant",
+        "べクトルDB"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "cloudflare",
+        "rag",
+        "Supabase",
+        "Qdrant",
+        "べクトルDB",
+        "Qiita"
+      ],
+      "passed_filter": true,
+      "rank": 8,
+      "english_summary": "Empirical benchmark of Supabase (pgvector), Qdrant Cloud, Turso, and Cloudflare Vectorize on the BEIR dataset — accuracy is comparable across all four; the real differentiator is where each free tier hits its limit first.",
+      "japanese_summary": "Supabase・Qdrant・Turso・Cloudflare Vectorizeを実測比較。精度は横並び、差は無料枠の詰まり方にあった。",
+      "why_it_matters": "Saves hours of vector DB selection research for any Seranova client building a RAG system — the free-tier bottleneck analysis is the exact decision variable most teams miss.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_aaa66ceeaf24c94dfd82",
+      "platform": "qiita",
+      "title": "RAGの評価指標を自動最適化！ハイブリッド検索＆チャンキング戦略",
+      "text": "「RAGシステムを構築したはいいものの、どうも精度が安定しない」「ハルシネーションが減らない」「手作業でのチャンクサイズ調整に疲弊している」――多くの方がRAG開発で直面する課題ではないでしょうか。特に、従来のベクトル検索だけでは不十分なケースや、日本語特有の難しさから、RAGの真価を発揮できていないと感じることもあるでしょう。\n\nこの記事では、RAGアプリの精度向上に悩む実務エンジニア向けに、**手作業でのチューニングを減らし、自動評価を通じて最適なハイブリッド検索とチャンキング戦略を見つける具体的な手順と知見**を提供します。RAGの評価指標を自動最適化し、より高度なRAG構築アプローチを身につけることで、あなたのRAGシステムは確実に次のレベルへ到達するはずです。\n\n## RAGの精度向上を阻む壁：なぜ従来のRAGでは不十分なのか\n\nこのセクションでは、なぜ従来の単純なRAG実装では精度が出にくいのか、その根本的な原因を解説します。RAG開発において、多くのエンジニアが直面する課題は、単に「ベクトル検索で似た文書を探す」だけでは解決しません。\n\nRAG (Retrieval Au",
+      "created_at": "2026-06-25T18:50:09+09:00",
+      "author_id": "DaokFrontier",
+      "author_handle": "DaokFrontier",
+      "author_name": "",
+      "article_url": "https://qiita.com/DaokFrontier/items/aaa66ceeaf24c94dfd82",
+      "source_url": "https://github.com/explodinggradients/ragas](https://github.com/explodinggradients/ragas",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "自然言語処理",
+        "機械学習",
+        "rag",
+        "ベクトル検索",
+        "LLM"
+      ],
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "workflow_demo",
+      "inferred_tags": [
+        "自然言語処理",
+        "機械学習",
+        "rag",
+        "ベクトル検索",
+        "LLM",
+        "RAG"
+      ],
+      "passed_filter": true,
+      "rank": 9,
+      "english_summary": "Covers automated optimization of RAG evaluation metrics using hybrid search and chunking strategy tuning — targeting the common production problem of unstable accuracy in Japanese-language RAG systems.",
+      "japanese_summary": "日本語RAGの精度不安定問題をハイブリッド検索とチャンキング戦略の自動最適化で解決するアプローチ。",
+      "why_it_matters": "Addresses the pain point Seranova clients hit after their first RAG deployment — automated tuning cuts the manual iteration cycle significantly.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_bb67e7e83a1510495107",
+      "platform": "qiita",
+      "title": "RAG の Embedding と Vector Database：文書を「検索できる形」にする仕組み",
+      "text": "<!--\nBefore a RAG system can retrieve document chunks, it needs two things.\n\nFirst, it needs a way to convert text into vectors. That is the role of **embedding**.\n-->\n\nRAG システムが文書チャンクを検索できるようになるには、まず 2 つのものが必要です。\n\n1 つ目は、テキストをベクトルに変換する方法です。これが **Embedding（埋め込み）** の役割です。\n\n<!--\n```text\ntext chunk\n  ↓\nembedding model\n  ↓\nvector\n```\n-->\n\n```text\nテキストチャンク\n  ↓\n埋め込みモデル\n  ↓\nベクトル\n```\n\n<!--\nFor example:\n-->\n\nたとえば、次のようになります。\n\n<!--\n```text\n\"New employees are eligible for ten days of paid leave.\"\n  ↓\n[0.12, ",
+      "created_at": "2026-06-25T01:20:35+09:00",
+      "author_id": "imi-glenn",
+      "author_handle": "imi-glenn",
+      "author_name": "",
+      "article_url": "https://qiita.com/imi-glenn/items/bb67e7e83a1510495107",
+      "source_url": "https://github.com/facebookresearch/faiss/wiki/MetricType-and-distances",
+      "metrics": {
+        "likes": 0
+      },
+      "tags": [
+        "AI",
+        "rag",
+        "LLM",
+        "AIエージェント"
+      ],
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "other",
+      "inferred_tags": [
+        "AI",
+        "rag",
+        "LLM",
+        "AIエージェント",
+        "RAG"
+      ],
+      "passed_filter": true,
+      "rank": 10,
+      "english_summary": "Beginner-friendly explainer of how Embedding models and Vector Databases work together in a RAG pipeline, with clear diagrams and examples suitable for a Japanese business context.",
+      "japanese_summary": "RAGにおけるEmbeddingとベクトルDBの仕組みを図解付きで初心者向けに解説。",
+      "why_it_matters": "Good reference to share with non-technical Japanese clients being introduced to RAG — clear enough to build shared understanding before a technical deep-dive.",
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
     }
   ]
 }

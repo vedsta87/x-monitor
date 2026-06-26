@@ -19,11 +19,21 @@ const PLATFORM_META: Record<Platform, { label: string; color: string }> = {
   mock:  { label: "Demo",  color: "#9ca3af" },
 };
 
+function cleanText(raw: string): string {
+  return raw
+    .replace(/!\[.*?\]\(.*?\)/g, "")  // strip markdown images
+    .replace(/<[^>]+>/g, " ")          // strip HTML tags
+    .replace(/https?:\/\/\S+/g, "")    // strip bare URLs
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function fallbackSummary(post: ScoredPost): { en: string; ja: string; why: string } {
+  const preview = cleanText(post.text).slice(0, 180);
   return {
-    en: `${post.title} — ${post.text.slice(0, 120)}…`,
+    en: preview || post.title,
     ja: post.title,
-    why: "High-signal content from Japanese AI community.",
+    why: "High-signal content from the Japanese AI developer community.",
   };
 }
 

@@ -34,7 +34,8 @@ function extractExternalUrl(text: string): string | undefined {
 
 async function fetchZenn(): Promise<RawPost[]> {
   const topics = ["生成ai", "llm", "aiagent", "mcp", "rag", "dify", "langchain"];
-  const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
+  // Zenn serves RSS 2.0 (not Atom), so we parse rss.channel.item
+  const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_", cdataPropName: "__cdata" });
   const posts: RawPost[] = [];
   const seen = new Set<string>();
 
@@ -46,27 +47,35 @@ async function fetchZenn(): Promise<RawPost[]> {
       });
       if (!res.ok) continue;
       const xml = await res.text();
-      const data = parser.parse(xml) as { feed?: { entry?: unknown[] } };
-      const entries = data?.feed?.entry ?? [];
+      const data = parser.parse(xml) as { rss?: { channel?: { item?: unknown[] | unknown } } };
+      const rawItems = data?.rss?.channel?.item ?? [];
+      const items = Array.isArray(rawItems) ? rawItems : [rawItems];
 
-      for (const e of Array.isArray(entries) ? entries : [entries]) {
-        const entry = e as Record<string, unknown>;
-        const url = (entry["id"] as string) ?? (entry["link"] as Record<string, string>)?.["@_href"] ?? "";
-        if (!url || seen.has(url)) continue;
+      for (const e of items) {
+        const item = e as Record<string, unknown>;
+        const url = String(item["link"] ?? item["guid"] ?? "");
+        if (!url || !url.startsWith("http") || seen.has(url)) continue;
         seen.add(url);
 
-        const body = String(entry["summary"] ?? entry["content"] ?? "");
-        const authorEl = entry["author"] as Record<string, string> | undefined;
+        // CDATA fields come back as { __cdata: "..." }
+        const cdata = (v: unknown): string =>
+          v && typeof v === "object" && "__cdata" in (v as object)
+            ? String((v as Record<string, unknown>)["__cdata"])
+            : String(v ?? "");
+
+        const body = cdata(item["description"]);
+        const author = cdata(item["dc:creator"]);
+        const slug = url.split("/").pop() ?? String(Date.now());
 
         posts.push({
-          id: `zenn_${url.split("/").pop() ?? Date.now()}`,
+          id: `zenn_${slug}`,
           platform: "zenn" as Platform,
-          title: String(entry["title"] ?? ""),
-          text: body.slice(0, 500),
-          created_at: String(entry["updated"] ?? entry["published"] ?? new Date().toISOString()),
-          author_id: String(authorEl?.["name"] ?? ""),
-          author_handle: String(authorEl?.["name"] ?? ""),
-          author_name: String(authorEl?.["name"] ?? ""),
+          title: cdata(item["title"]),
+          text: body.replace(/<[^>]+>/g, "").slice(0, 500),
+          created_at: String(item["pubDate"] ?? new Date().toISOString()),
+          author_id: author,
+          author_handle: author,
+          author_name: author,
           article_url: url,
           source_url: extractExternalUrl(body),
           metrics: { likes: 0, comments: 0 },
@@ -132,53 +141,12 @@ async function fetchQiita(): Promise<RawPost[]> {
 }
 
 // ─── Note.com ────────────────────────────────────────────────────────────────
+// Note.com has no stable public API as of mid-2026. Keeping the function
+// as a no-op so adding support later is easy.
 
 async function fetchNote(): Promise<RawPost[]> {
-  const hashtags = ["生成AI", "AIツール", "業務改善", "ノーコード", "LLM"];
-  const posts: RawPost[] = [];
-  const seen = new Set<string>();
-
-  for (const tag of hashtags) {
-    try {
-      const params = new URLSearchParams({ context: "note", q: tag, size: "15", start: "0", order: "new" });
-      const res = await fetch(`https://note.com/api/v2/searches/contents?${params}`, {
-        headers: { "User-Agent": "x-monitor/1.0" },
-        signal: AbortSignal.timeout(10_000),
-      });
-      if (!res.ok) continue;
-      const data = await res.json() as {
-        data?: { contents?: Array<{
-          id: number; name: string; description: string;
-          noteUrl: string; likeCount: number; publishAt: string;
-          user: { urlname: string; name: string };
-        }> };
-      };
-
-      for (const note of data?.data?.contents ?? []) {
-        const key = String(note.id);
-        if (seen.has(key)) continue;
-        seen.add(key);
-        posts.push({
-          id: `note_${note.id}`,
-          platform: "note" as Platform,
-          title: note.name,
-          text: note.description?.slice(0, 500) ?? "",
-          created_at: note.publishAt,
-          author_id: note.user.urlname,
-          author_handle: note.user.urlname,
-          author_name: note.user.name,
-          article_url: note.noteUrl,
-          source_url: extractExternalUrl(note.description ?? ""),
-          metrics: { likes: note.likeCount },
-          tags: [tag],
-        });
-      }
-    } catch (err) {
-      console.warn(`Note fetch failed for hashtag ${tag}:`, (err as Error).message);
-    }
-  }
-
-  return posts;
+  console.warn("Note.com: no stable public API available — skipping.");
+  return [];
 }
 
 // ─── Mock data ───────────────────────────────────────────────────────────────

@@ -8,14 +8,16 @@
     "render": "tsx scripts/render_digest.ts",
     "sync": "tsx scripts/sync_to_notion.ts",
     "pipeline": "tsx scripts/run_all.ts",
+    "summarize": "tsx scripts/summarize_posts.ts",
     "demo": "MOCK_DATA=true tsx scripts/run_all.ts"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
+    "@types/node": "^22.0.0",
     "tsx": "^4.7.0",
-    "@types/node": "^22.0.0"
+    "typescript": "^5.4.0"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.106.0",
     "@notionhq/client": "^2.2.15",
     "dotenv": "^16.4.5",
     "fast-xml-parser": "^4.4.0"

@@ -12,6 +12,11 @@ function run(label: string, cmd: string) {
 
 run("Collecting posts (Zenn + Qiita + Note)", "npx tsx scripts/collect_posts.ts");
 run("Scoring & filtering",                    "npx tsx scripts/score_posts.ts");
+if (process.env.ANTHROPIC_API_KEY) {
+  run("Generating English summaries",         "npx tsx scripts/summarize_posts.ts");
+} else {
+  console.log("\n⚠ Skipping summarize step — ANTHROPIC_API_KEY not set (summaries will fall back to raw text).");
+}
 run("Rendering markdown digest",              "npx tsx scripts/render_digest.ts");
 run("Rendering web JSON",                     "npx tsx scripts/render_web.ts");
 
