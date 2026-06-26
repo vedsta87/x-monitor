@@ -36,10 +36,10 @@ function scorePost(post: RawPost, rubric: Rubric): ScoredPost["scores"] {
   // Evidence: explicit external link in source_url OR evidence signals in body
   const hasLink = !!post.source_url;
   const evidence    = (hasLink || hits(body, dims.evidence.signals)) ? dims.evidence.weight : 0;
-  const relevance   = hits(body, dims.relevance.signals)   ? dims.relevance.weight   : 0;
-  const japan_fit   = hits(body, dims.japan_fit.signals)   ? dims.japan_fit.weight   : 0;
+  const content_value = hits(body, dims.content_value.signals) ? dims.content_value.weight : 0;
+  const japan_fit     = hits(body, dims.japan_fit.signals)     ? dims.japan_fit.weight     : 0;
 
-  return { novelty, practicality, evidence, relevance, japan_fit, total: novelty + practicality + evidence + relevance + japan_fit };
+  return { novelty, practicality, evidence, content_value, japan_fit, total: novelty + practicality + evidence + content_value + japan_fit };
 }
 
 function categorize(post: RawPost): ScoredPost["category"] {

@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { XMLParser } from "fast-xml-parser";
@@ -9,6 +9,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const MOCK_DATA = process.env.MOCK_DATA === "true";
 const QIITA_TOKEN = process.env.QIITA_TOKEN; // optional, increases rate limit
+
+function readJson<T>(rel: string): T {
+  return JSON.parse(readFileSync(join(ROOT, rel), "utf-8")) as T;
+}
 
 function today(): string {
   return new Date().toISOString().slice(0, 10);
@@ -141,12 +145,66 @@ async function fetchQiita(): Promise<RawPost[]> {
 }
 
 // ─── Note.com ────────────────────────────────────────────────────────────────
-// Note.com has no stable public API as of mid-2026. Keeping the function
-// as a no-op so adding support later is easy.
+// Note.com has no public hashtag API, but individual creators have RSS feeds
+// at https://note.com/{username}/rss (RSS 2.0). We subscribe to a curated list.
 
 async function fetchNote(): Promise<RawPost[]> {
-  console.warn("Note.com: no stable public API available — skipping.");
-  return [];
+  const { note_creators } = readJson<{ note_creators: Array<{ username: string; name: string }> }>("config/accounts.json");
+  if (!note_creators?.length) {
+    console.warn("Note.com: no creators configured in config/accounts.json");
+    return [];
+  }
+
+  const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_", cdataPropName: "__cdata" });
+  const posts: RawPost[] = [];
+  const seen = new Set<string>();
+
+  const cdata = (v: unknown): string =>
+    v && typeof v === "object" && "__cdata" in (v as object)
+      ? String((v as Record<string, unknown>)["__cdata"])
+      : String(v ?? "");
+
+  for (const creator of note_creators) {
+    try {
+      const res = await fetch(`https://note.com/${creator.username}/rss`, {
+        headers: { "User-Agent": "x-monitor/1.0" },
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!res.ok) { console.warn(`Note RSS 404 for @${creator.username}`); continue; }
+      const xml = await res.text();
+      const data = parser.parse(xml) as { rss?: { channel?: { item?: unknown[] | unknown } } };
+      const rawItems = data?.rss?.channel?.item ?? [];
+      const items = Array.isArray(rawItems) ? rawItems : [rawItems];
+
+      for (const e of items) {
+        const item = e as Record<string, unknown>;
+        const url = String(item["link"] ?? "");
+        if (!url || seen.has(url)) continue;
+        seen.add(url);
+
+        const body = cdata(item["description"]).replace(/<[^>]+>/g, " ").slice(0, 500);
+
+        posts.push({
+          id: `note_${creator.username}_${url.split("/").pop() ?? Date.now()}`,
+          platform: "note" as Platform,
+          title: cdata(item["title"]),
+          text: body,
+          created_at: String(item["pubDate"] ?? new Date().toISOString()),
+          author_id: creator.username,
+          author_handle: creator.username,
+          author_name: creator.name,
+          article_url: url,
+          source_url: extractExternalUrl(body),
+          metrics: { likes: 0 },
+          tags: ["note"],
+        });
+      }
+    } catch (err) {
+      console.warn(`Note RSS failed for @${creator.username}:`, (err as Error).message);
+    }
+  }
+
+  return posts;
 }
 
 // ─── Mock data ───────────────────────────────────────────────────────────────

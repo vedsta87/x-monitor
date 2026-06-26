@@ -1,11 +1,11 @@
 import type { WebPost, PostScores } from "@/types/digest";
 
 const SCORE_LABELS: [keyof PostScores, string][] = [
-  ["novelty",      "Novelty"],
-  ["practicality", "Practicality"],
-  ["evidence",     "Evidence"],
-  ["relevance",    "Relevance"],
-  ["japan_fit",    "Japan fit"],
+  ["novelty",       "New tools"],
+  ["practicality",  "Use cases"],
+  ["evidence",      "Evidence"],
+  ["content_value", "Writing value"],
+  ["japan_fit",     "Japan fit"],
 ];
 
 function ScoreBar({ label, value, max = 5 }: { label: string; value: number; max?: number }) {
@@ -29,26 +29,37 @@ function formatDate(iso: string): string {
 interface Props {
   post: WebPost;
   categoryLabel: string;
+  isBookmarked: boolean;
+  onBookmark: (e: React.MouseEvent) => void;
 }
 
-export default function ExplainerPanel({ post, categoryLabel }: Props) {
+export default function ExplainerPanel({ post, categoryLabel, isBookmarked, onBookmark }: Props) {
   return (
     <div className="flex flex-col w-full max-w-2xl mx-auto p-6 gap-6">
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <div>
-        <div className="flex items-center gap-2 mb-3">
-          <span
-            className="text-xs font-semibold px-2 py-0.5 rounded text-white"
-            style={{ backgroundColor: post.platform_color }}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <span
+              className="text-xs font-semibold px-2 py-0.5 rounded text-white"
+              style={{ backgroundColor: post.platform_color }}
+            >
+              {post.platform_label}
+            </span>
+            <span className="text-xs text-gray-500">{categoryLabel}</span>
+            <span className="text-xs text-gray-400">·</span>
+            <span className="text-xs text-gray-400">Rank #{post.rank}</span>
+            <span className="text-xs text-gray-400">·</span>
+            <span className="text-xs text-gray-400">{formatDate(post.created_at)}</span>
+          </div>
+          <button
+            onClick={onBookmark}
+            title={isBookmarked ? "Remove bookmark" : "Save for later"}
+            className="text-xl leading-none transition-opacity hover:opacity-70 select-none"
           >
-            {post.platform_label}
-          </span>
-          <span className="text-xs text-gray-500">{categoryLabel}</span>
-          <span className="text-xs text-gray-400">·</span>
-          <span className="text-xs text-gray-400">Rank #{post.rank}</span>
-          <span className="text-xs text-gray-400">·</span>
-          <span className="text-xs text-gray-400">{formatDate(post.created_at)}</span>
+            {isBookmarked ? "❤️" : "🤍"}
+          </button>
         </div>
 
         <h2 className="text-lg font-semibold text-gray-900 leading-snug mb-1">

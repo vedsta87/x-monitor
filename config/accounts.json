@@ -1,17 +1,13 @@
 {
-  "watchlist": [
-    { "handle": "shota7180", "name": "Shota", "notes": "JP AI practitioner, frequent tool demos" },
-    { "handle": "masahirochaen", "name": "Masahiro Chaen", "notes": "Dify/n8n workflows in Japanese" },
-    { "handle": "kazuhito", "name": "Kazuhito Kidachi", "notes": "AI productivity tools" },
-    { "handle": "ai_syacho", "name": "AI社長", "notes": "SMB AI automation use cases" },
-    { "handle": "sundaylab", "name": "Sunday Lab", "notes": "No-code + AI Japan" },
-    { "handle": "prompt_jinja", "name": "プロンプトの神様", "notes": "Prompt engineering JP" },
-    { "handle": "yuyakobayashi_ai", "name": "Yuya Kobayashi", "notes": "LLM/agent implementation" },
-    { "handle": "hAru_ai_agent", "name": "hAru", "notes": "AI agent demos" },
-    { "handle": "takahe_ai", "name": "たかへ", "notes": "AI tools daily updates" }
+  "watchlist_qiita": [],
+  "watchlist_zenn": [],
+  "note_creators": [
+    { "username": "ttj", "name": "TTJ", "notes": "AI tools and automation in Japanese business" },
+    { "username": "kazuhito", "name": "Kazuhito", "notes": "AI productivity and tools" },
+    { "username": "masuidrive", "name": "Masuidrive", "notes": "AI engineering and LLM practice" },
+    { "username": "ai_product_lab", "name": "AI Product Lab", "notes": "AI product launches Japan" },
+    { "username": "shota7180", "name": "Shota", "notes": "Practical AI tool demos" },
+    { "username": "yuyakobayashi_ai", "name": "Yuya Kobayashi", "notes": "LLM/agent implementation" }
   ],
-  "exclude_accounts": [
-    "recruiters",
-    "crypto_promoters"
-  ]
+  "note_rss_format": "https://note.com/{username}/rss"
 }

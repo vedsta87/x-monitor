@@ -18,11 +18,13 @@ function timeAgo(iso: string): string {
 interface Props {
   post: WebPost;
   isSelected: boolean;
+  isBookmarked: boolean;
   categoryLabel: string;
   onClick: () => void;
+  onBookmark: (e: React.MouseEvent) => void;
 }
 
-export default function PostCard({ post, isSelected, categoryLabel, onClick }: Props) {
+export default function PostCard({ post, isSelected, isBookmarked, categoryLabel, onClick, onBookmark }: Props) {
   return (
     <button
       onClick={onClick}
@@ -32,7 +34,7 @@ export default function PostCard({ post, isSelected, categoryLabel, onClick }: P
           : "border-l-2 border-transparent hover:bg-gray-50"
       }`}
     >
-      {/* Top row: platform badge + rank + score */}
+      {/* Top row: platform badge + rank + score + bookmark */}
       <div className="flex items-center justify-between mb-1.5">
         <div className="flex items-center gap-1.5">
           <span
@@ -44,9 +46,22 @@ export default function PostCard({ post, isSelected, categoryLabel, onClick }: P
           <span className="text-[10px] text-gray-400 font-mono">#{post.rank}</span>
           <span className="text-[10px] text-gray-400">{categoryLabel}</span>
         </div>
-        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-sm ${scoreColor(post.scores.total)}`}>
-          {post.scores.total}/25
-        </span>
+        <div className="flex items-center gap-1.5">
+          <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-sm ${scoreColor(post.scores.total)}`}>
+            {post.scores.total}/25
+          </span>
+          {/* Bookmark button */}
+          <span
+            role="button"
+            onClick={onBookmark}
+            title={isBookmarked ? "Remove bookmark" : "Save for later"}
+            className={`text-sm leading-none transition-opacity select-none cursor-pointer ${
+              isBookmarked ? "opacity-100" : "opacity-20 group-hover:opacity-50"
+            }`}
+          >
+            {isBookmarked ? "❤️" : "🤍"}
+          </span>
+        </div>
       </div>
 
       {/* Title */}
@@ -59,13 +74,13 @@ export default function PostCard({ post, isSelected, categoryLabel, onClick }: P
         {post.english_summary}
       </p>
 
-      {/* Bottom: author + metrics */}
+      {/* Bottom: author + metrics + time */}
       <div className="flex items-center justify-between">
         <span className="text-[10px] text-gray-400">@{post.author_handle}</span>
         <div className="flex items-center gap-2 text-[10px] text-gray-400">
-          <span>❤️ {post.metrics.likes.toLocaleString()}</span>
-          {post.metrics.comments !== undefined && <span>💬 {post.metrics.comments}</span>}
-          <span>· {timeAgo(post.created_at)}</span>
+          {post.metrics.likes > 0 && <span>❤️ {post.metrics.likes.toLocaleString()}</span>}
+          {post.metrics.comments !== undefined && post.metrics.comments > 0 && <span>💬 {post.metrics.comments}</span>}
+          <span>{timeAgo(post.created_at)}</span>
         </div>
       </div>
     </button>

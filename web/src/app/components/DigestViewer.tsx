@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { WebDigest, WebPost } from "@/types/digest";
 import PostCard from "./PostCard";
 import ExplainerPanel from "./ExplainerPanel";
@@ -18,8 +18,40 @@ function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
+type SortMode = "score" | "date";
+type FilterMode = "all" | "saved";
+
 export default function DigestViewer({ digest }: { digest: WebDigest }) {
   const [selected, setSelected] = useState<WebPost>(digest.posts[0]);
+  const [sortBy, setSortBy] = useState<SortMode>("score");
+  const [filterMode, setFilterMode] = useState<FilterMode>("all");
+  const [bookmarks, setBookmarks] = useState<Set<string>>(new Set());
+
+  // Load bookmarks from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("jp-ai-monitor-bookmarks");
+    if (saved) {
+      try { setBookmarks(new Set(JSON.parse(saved) as string[])); } catch {}
+    }
+  }, []);
+
+  const toggleBookmark = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setBookmarks((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      localStorage.setItem("jp-ai-monitor-bookmarks", JSON.stringify([...next]));
+      return next;
+    });
+  };
+
+  const sorted = [...digest.posts].sort((a, b) =>
+    sortBy === "date"
+      ? new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      : a.rank - b.rank
+  );
+
+  const visible = filterMode === "saved" ? sorted.filter((p) => bookmarks.has(p.id)) : sorted;
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
@@ -63,29 +95,86 @@ export default function DigestViewer({ digest }: { digest: WebDigest }) {
       {/* ── Main columns ───────────────────────────────────────────────── */}
       <div className="flex flex-1 overflow-hidden">
         {/* Left: feed */}
-        <aside className="w-full sm:w-[42%] lg:w-[38%] flex-none overflow-y-auto scrollbar-thin border-r border-gray-200 bg-white">
-          <div className="divide-y divide-gray-100">
-            {digest.posts.map((post) => (
+        <aside className="w-full sm:w-[42%] lg:w-[38%] flex-none flex flex-col overflow-hidden border-r border-gray-200 bg-white">
+
+          {/* Feed controls */}
+          <div className="flex-none flex items-center justify-between px-3 py-2 border-b border-gray-100 bg-gray-50">
+            {/* Filter tabs */}
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setFilterMode("all")}
+                className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
+                  filterMode === "all" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
+                }`}
+              >
+                All {digest.posts.length}
+              </button>
+              <button
+                onClick={() => setFilterMode("saved")}
+                className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
+                  filterMode === "saved" ? "bg-gray-800 text-white" : "text-gray-500 hover:text-gray-800"
+                }`}
+              >
+                ❤️ Saved {bookmarks.size > 0 ? bookmarks.size : ""}
+              </button>
+            </div>
+
+            {/* Sort toggle */}
+            <div className="flex items-center gap-0.5 bg-gray-100 rounded-full p-0.5">
+              <button
+                onClick={() => setSortBy("score")}
+                className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
+                  sortBy === "score" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                Score
+              </button>
+              <button
+                onClick={() => setSortBy("date")}
+                className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
+                  sortBy === "date" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                Newest
+              </button>
+            </div>
+          </div>
+
+          {/* Scrollable feed */}
+          <div className="flex-1 overflow-y-auto scrollbar-thin divide-y divide-gray-100">
+            {visible.map((post) => (
               <PostCard
                 key={post.id}
                 post={post}
                 isSelected={selected.id === post.id}
+                isBookmarked={bookmarks.has(post.id)}
                 categoryLabel={CATEGORY_LABELS[post.category] ?? "📌"}
                 onClick={() => setSelected(post)}
+                onBookmark={(e) => toggleBookmark(post.id, e)}
               />
             ))}
-          </div>
 
-          {digest.posts.length === 0 && (
-            <div className="p-8 text-center text-gray-400 text-sm">
-              No strong signals found this week. Check back next run.
-            </div>
-          )}
+            {visible.length === 0 && filterMode === "saved" && (
+              <div className="p-8 text-center text-gray-400 text-sm">
+                <p className="text-2xl mb-2">❤️</p>
+                <p>No saved posts yet.</p>
+                <p className="text-xs mt-1">Click the heart on any article to save it.</p>
+              </div>
+            )}
+            {visible.length === 0 && filterMode === "all" && (
+              <div className="p-8 text-center text-gray-400 text-sm">
+                No strong signals found this week.
+              </div>
+            )}
+          </div>
         </aside>
 
         {/* Right: explainer */}
         <main className="hidden sm:flex flex-1 overflow-y-auto scrollbar-thin bg-gray-50">
-          <ExplainerPanel post={selected} categoryLabel={CATEGORY_LABELS[selected.category] ?? "📌"} />
+          {selected
+            ? <ExplainerPanel post={selected} categoryLabel={CATEGORY_LABELS[selected.category] ?? "📌"} isBookmarked={bookmarks.has(selected.id)} onBookmark={(e) => toggleBookmark(selected.id, e)} />
+            : <div className="m-auto text-gray-400 text-sm">Select an article</div>
+          }
         </main>
       </div>
     </div>

@@ -33,7 +33,7 @@ async function summarise(client: Anthropic, post: ScoredPost): Promise<{
   why_it_matters: string;
 }> {
   const body = cleanText(post.text);
-  const prompt = `You are a bilingual JP/EN assistant helping a solo AI consultant in Japan scan Japanese tech articles for useful AI tools, workflows, and product launches.
+  const prompt = `You are a bilingual JP/EN assistant curating Japanese tech articles about AI tools, workflows, and product launches for a public digest.
 
 Article (Japanese):
 Title: ${post.title}
@@ -43,9 +43,9 @@ Preview: ${body}
 Write three short outputs. Respond ONLY with JSON, no extra text:
 
 {
-  "english_summary": "1–2 sentence English description of what this article is actually about and what it demonstrates or teaches. Be specific.",
-  "japanese_summary": "1文で内容を要約してください（日本語）",
-  "why_it_matters": "1–2 sentence explanation of why this is useful for a PM/builder working on AI products in Japan. Be concrete."
+  "english_summary": "1–2 sentence English description of what this article is about and what it demonstrates or teaches. Be specific. No personal names or company names.",
+  "japanese_summary": "1文で内容を要約してください（日本語）。固有の社名・人名は含めないでください。",
+  "why_it_matters": "1–2 sentence explanation of why this is practically useful for anyone building AI products or workflows. Be concrete. Do NOT mention specific companies, clients, or business names."
 }`;
 
   const msg = await client.messages.create({

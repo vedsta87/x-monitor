@@ -4,7 +4,7 @@ export interface PostScores {
   novelty: number;
   practicality: number;
   evidence: number;
-  relevance: number;
+  content_value: number;
   japan_fit: number;
   total: number;
 }

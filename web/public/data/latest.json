@@ -34,9 +34,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 25
+        "total": 25,
+        "content_value": 5
       },
       "category": "workflow_demo",
       "inferred_tags": [
@@ -75,9 +75,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -90,7 +90,7 @@
       "rank": 2,
       "english_summary": "AWS framework for adding AI to existing systems via three patterns: Agentic Overlay on REST APIs (A2A/MCP), MCP-enabled agents for AWS Health event analysis, and SageMaker video upscaling.",
       "japanese_summary": "既存REST API・運用データ・映像資産へAIを追加するAWSの3パターン整理。",
-      "why_it_matters": "Concrete enterprise AI integration patterns backed by AWS — strong reference material for Seranova client proposals on AI adoption strategy.",
+      "why_it_matters": "Concrete enterprise AI integration patterns backed by AWS — strong reference material for client proposals on AI adoption strategy.",
       "platform_label": "Zenn",
       "platform_color": "#3ea8ff"
     },
@@ -115,9 +115,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -157,9 +157,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "workflow_demo",
       "inferred_tags": [
@@ -178,7 +178,7 @@
       "rank": 4,
       "english_summary": "Step-by-step guide to building a free AI-OCR system using Google Apps Script and Gemini to automatically read handwritten Japanese forms and push data into Google Sheets — no paid APIs needed.",
       "japanese_summary": "GAS×Geminiで手書き帳票をAI-OCRしてスプレッドシートへ自動入力する無料構築ガイド。",
-      "why_it_matters": "Practical zero-cost automation for a very common Japanese SMB pain point (paper forms). Good concrete demo for Seranova's AI audit and advisory pitches.",
+      "why_it_matters": "Practical zero-cost automation for a very common Japanese SMB pain point (paper forms). Good concrete demo for AI audit pitches.",
       "platform_label": "Qiita",
       "platform_color": "#55c500"
     },
@@ -206,9 +206,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 0,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -222,7 +222,7 @@
       "rank": 5,
       "english_summary": "Part 2 of a 3-part AI safety guide focused on detecting AI-generated impersonation scams — specifically fake executive emails — with practical verification methods for individuals and businesses.",
       "japanese_summary": "AI生成なりすまし詐欺（偽社長メール等）の見分け方と防御手法を解説するAI安全活用ガイド第2回。",
-      "why_it_matters": "Client education on AI risk is increasingly part of advisory scope in Japan — this gives Seranova a concrete talking point for SMB AI audit engagements.",
+      "why_it_matters": "Client education on AI risk is increasingly part of advisory scope in Japan — this gives your a concrete talking point for SMB AI audit engagements.",
       "platform_label": "Qiita",
       "platform_color": "#55c500"
     },
@@ -251,9 +251,9 @@
         "novelty": 0,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "prompt_template",
       "inferred_tags": [
@@ -271,7 +271,7 @@
       "rank": 6,
       "english_summary": "Exposes four LLM attack vectors targeting the \"semantic layer\" — the gap that existing OWASP, NIST, and ISO frameworks miss when applied to LLM agents — with defensive design patterns.",
       "japanese_summary": "既存セキュリティフレームワークが見落とすLLMエージェントの意味レイヤーへの4つの攻撃ベクターと防御設計。",
-      "why_it_matters": "Essential for any client deploying LLM agents in production. Helps Seranova deliver credible, specific AI risk assessments beyond generic compliance checklists.",
+      "why_it_matters": "Essential for any client deploying LLM agents in production. Helps teams deliver credible, specific AI risk assessments beyond generic compliance checklists.",
       "platform_label": "Qiita",
       "platform_color": "#55c500"
     },
@@ -300,9 +300,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 0,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -345,9 +345,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 0,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "new_tool",
       "inferred_tags": [
@@ -362,7 +362,7 @@
       "rank": 8,
       "english_summary": "Empirical benchmark of Supabase (pgvector), Qdrant Cloud, Turso, and Cloudflare Vectorize on the BEIR dataset — accuracy is comparable across all four; the real differentiator is where each free tier hits its limit first.",
       "japanese_summary": "Supabase・Qdrant・Turso・Cloudflare Vectorizeを実測比較。精度は横並び、差は無料枠の詰まり方にあった。",
-      "why_it_matters": "Saves hours of vector DB selection research for any Seranova client building a RAG system — the free-tier bottleneck analysis is the exact decision variable most teams miss.",
+      "why_it_matters": "Saves hours of vector DB selection research for any client building a RAG system — the free-tier bottleneck analysis is the exact decision variable most teams miss.",
       "platform_label": "Qiita",
       "platform_color": "#55c500"
     },
@@ -391,9 +391,9 @@
         "novelty": 0,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 5,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "workflow_demo",
       "inferred_tags": [
@@ -408,7 +408,7 @@
       "rank": 9,
       "english_summary": "Covers automated optimization of RAG evaluation metrics using hybrid search and chunking strategy tuning — targeting the common production problem of unstable accuracy in Japanese-language RAG systems.",
       "japanese_summary": "日本語RAGの精度不安定問題をハイブリッド検索とチャンキング戦略の自動最適化で解決するアプローチ。",
-      "why_it_matters": "Addresses the pain point Seranova clients hit after their first RAG deployment — automated tuning cuts the manual iteration cycle significantly.",
+      "why_it_matters": "Addresses the pain point teams hit after their first RAG deployment — automated tuning cuts the manual iteration cycle significantly.",
       "platform_label": "Qiita",
       "platform_color": "#55c500"
     },
@@ -436,9 +436,9 @@
         "novelty": 5,
         "practicality": 5,
         "evidence": 5,
-        "relevance": 5,
         "japan_fit": 0,
-        "total": 20
+        "total": 20,
+        "content_value": 5
       },
       "category": "other",
       "inferred_tags": [

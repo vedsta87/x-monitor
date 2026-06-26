@@ -28,7 +28,7 @@ export interface ScoredPost extends RawPost {
     novelty: number;
     practicality: number;
     evidence: number;
-    relevance: number;
+    content_value: number;
     japan_fit: number;
     total: number;
   };
