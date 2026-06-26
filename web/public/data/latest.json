@@ -1,0 +1,235 @@
+{
+  "date": "2026-06-26",
+  "generated_at": "2026-06-26T03:26:00.753Z",
+  "is_mock": true,
+  "sources": [
+    "zenn",
+    "note",
+    "qiita"
+  ],
+  "total_scanned": 8,
+  "passed_filter": 5,
+  "posts": [
+    {
+      "id": "zenn_mcp_notion_agent",
+      "platform": "zenn",
+      "title": "Claude MCPでNotionを操作するAIエージェントを100行で作る",
+      "text": "MCP（Model Context Protocol）を使ってClaude DesktopからNotionデータベースを直接操作するエージェントを構築しました。セットアップから動作確認まで全手順を解説します。GitHubリポジトリも公開中: https://github.com/example/mcp-notion-agent",
+      "created_at": "2026-06-26T01:25:59.510Z",
+      "author_id": "yuki_builder",
+      "author_handle": "yuki_builder",
+      "author_name": "Yuki / AIビルダー",
+      "article_url": "https://zenn.dev/yuki_builder/articles/mcp-notion-agent",
+      "source_url": "https://github.com/example/mcp-notion-agent",
+      "metrics": {
+        "likes": 312,
+        "comments": 24
+      },
+      "tags": [
+        "MCP",
+        "Claude",
+        "Notion",
+        "AIエージェント"
+      ],
+      "english_summary": "Step-by-step guide to building a Claude MCP agent that directly operates Notion databases in under 100 lines of code.",
+      "japanese_summary": "Claude MCPでNotionを操作するエージェントを100行以下で構築する全手順を解説。",
+      "why_it_matters": "MCP integration patterns are becoming the standard for AI-to-SaaS automation — this is a directly reusable pattern for Seranova client workflows.",
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 0,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "MCP",
+        "Claude",
+        "Notion",
+        "AIエージェント",
+        "agent"
+      ],
+      "passed_filter": true,
+      "rank": 1,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff"
+    },
+    {
+      "id": "note_ai_startup_smb",
+      "platform": "note",
+      "title": "資金調達なしで日本のSMB向けAI導入支援を始めた理由",
+      "text": "AIスタートアップを創業して3ヶ月が経ちました。資金調達せず、最初から収益化を目指した理由と、中小企業へのAI導入支援で学んだことをまとめます。",
+      "created_at": "2026-06-25T03:25:59.511Z",
+      "author_id": "kenji_ai_founder",
+      "author_handle": "kenji_ai_founder",
+      "author_name": "Kenji | AI startup",
+      "article_url": "https://note.com/kenji_ai_founder/n/ai-startup-smb-japan",
+      "source_url": "https://example-startup.jp",
+      "metrics": {
+        "likes": 178
+      },
+      "tags": [
+        "AIスタートアップ",
+        "中小企業",
+        "AI導入",
+        "起業"
+      ],
+      "english_summary": "A founder shares 3 months of learnings building a bootstrapped AI adoption consultancy for Japanese SMBs, with candid notes on what actually works.",
+      "japanese_summary": "資金調達なしでSMB向けAI導入支援スタートアップを3ヶ月運営した学びを公開。",
+      "why_it_matters": "A direct competitor/peer in the JP AI consulting space — good to watch their positioning and pricing signals.",
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "founder_announcement",
+      "inferred_tags": [
+        "AIスタートアップ",
+        "中小企業",
+        "AI導入",
+        "起業"
+      ],
+      "passed_filter": true,
+      "rank": 2,
+      "platform_label": "Note",
+      "platform_color": "#41c9b4"
+    },
+    {
+      "id": "qiita_rag_eval_japanese",
+      "platform": "qiita",
+      "title": "日本語RAGの精度評価指標と改善手法まとめ2026",
+      "text": "日本語でRAGシステムを構築する際の精度評価方法と、よく起きる問題（チャンク分割、ベクトル化、リランキング）への対処法をまとめました。実験結果のデータも公開します。",
+      "created_at": "2026-06-24T15:25:59.511Z",
+      "author_id": "llm_researcher_jp",
+      "author_handle": "llm_researcher_jp",
+      "author_name": "LLM Researcher JP",
+      "article_url": "https://qiita.com/llm_researcher_jp/items/rag-eval-japanese-2026",
+      "metrics": {
+        "likes": 298,
+        "comments": 22
+      },
+      "tags": [
+        "RAG",
+        "LLM",
+        "日本語",
+        "評価"
+      ],
+      "english_summary": "A 2026 benchmark of evaluation metrics and improvement techniques for Japanese-language RAG systems, with published experimental data on chunking, vectorization, and reranking.",
+      "japanese_summary": "日本語RAGの精度評価指標と改善手法（チャンク・ベクトル化・リランキング）の2026年まとめ。",
+      "why_it_matters": "Essential reference if any Seranova client projects involve Japanese document RAG — saves weeks of trial and error.",
+      "scores": {
+        "novelty": 5,
+        "practicality": 5,
+        "evidence": 0,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 20
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "RAG",
+        "LLM",
+        "日本語",
+        "評価"
+      ],
+      "passed_filter": true,
+      "rank": 3,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "qiita_n8n_slack_notion_cal",
+      "platform": "qiita",
+      "title": "n8nでSlack→Notion→Googleカレンダーの3-way自動同期を構築した全記録",
+      "text": "会議メモをSlackで受け取り、Notionにタスクとして保存し、Googleカレンダーに自動登録するn8nワークフローを本番稼働させました。ワークフローのJSONもGitHubで公開します。https://github.com/example/n8n-3way-sync",
+      "created_at": "2026-06-25T22:25:59.511Z",
+      "author_id": "masato_automate",
+      "author_handle": "masato_automate",
+      "author_name": "Masato | 自動化エンジニア",
+      "article_url": "https://qiita.com/masato_automate/items/n8n-3way-sync",
+      "source_url": "https://github.com/example/n8n-3way-sync",
+      "metrics": {
+        "likes": 189,
+        "comments": 18
+      },
+      "tags": [
+        "n8n",
+        "Notion",
+        "Slack",
+        "GoogleCalendar",
+        "自動化"
+      ],
+      "english_summary": "Complete walkthrough of an n8n workflow that syncs Slack meeting notes → Notion tasks → Google Calendar events automatically.",
+      "japanese_summary": "Slack会議メモをNotionタスク化しGoogleカレンダーへ自動連携するn8nワークフローの全記録。",
+      "why_it_matters": "This 3-way sync pattern solves a real pain point in Japanese SMB ops — good template for a Crossteria-style client pitch.",
+      "scores": {
+        "novelty": 5,
+        "practicality": 0,
+        "evidence": 5,
+        "relevance": 5,
+        "japan_fit": 0,
+        "total": 15
+      },
+      "category": "new_tool",
+      "inferred_tags": [
+        "n8n",
+        "Notion",
+        "Slack",
+        "GoogleCalendar",
+        "自動化"
+      ],
+      "passed_filter": true,
+      "rank": 4,
+      "platform_label": "Qiita",
+      "platform_color": "#55c500"
+    },
+    {
+      "id": "zenn_claude_api_jp_prompt",
+      "platform": "zenn",
+      "title": "Claude APIで日本語出力品質を上げる7つのプロンプトパターン",
+      "text": "Claude APIを使って日本語ビジネス文書を生成する際に効果的だったプロンプトパターンをまとめました。敬語モード、箇条書き強制、出力長コントロールなど実務で使えるテクニックを網羅。",
+      "created_at": "2026-06-25T15:25:59.511Z",
+      "author_id": "prompt_lab_jp",
+      "author_handle": "prompt_lab_jp",
+      "author_name": "Prompt Lab JP",
+      "article_url": "https://zenn.dev/prompt_lab_jp/articles/claude-jp-prompt-patterns",
+      "metrics": {
+        "likes": 567,
+        "comments": 41
+      },
+      "tags": [
+        "Claude",
+        "プロンプト",
+        "日本語",
+        "LLM"
+      ],
+      "english_summary": "Seven battle-tested prompt patterns for getting Claude to produce high-quality Japanese business documents, covering honorifics mode, formatting control, and output length.",
+      "japanese_summary": "Claude APIで日本語ビジネス文書を生成するための実務プロンプトパターン7選。",
+      "why_it_matters": "Directly applicable to Seranova's client-facing deliverables and blog — saves real prompt engineering time.",
+      "scores": {
+        "novelty": 0,
+        "practicality": 5,
+        "evidence": 0,
+        "relevance": 5,
+        "japan_fit": 5,
+        "total": 15
+      },
+      "category": "prompt_template",
+      "inferred_tags": [
+        "Claude",
+        "プロンプト",
+        "日本語",
+        "LLM",
+        "prompt"
+      ],
+      "passed_filter": true,
+      "rank": 5,
+      "platform_label": "Zenn",
+      "platform_color": "#3ea8ff"
+    }
+  ]
+}

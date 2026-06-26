@@ -10,9 +10,10 @@ function run(label: string, cmd: string) {
   execSync(cmd, { cwd: ROOT, stdio: "inherit", env: { ...process.env } });
 }
 
-run("Collecting posts", "npx tsx scripts/collect_posts.ts");
-run("Scoring & filtering", "npx tsx scripts/score_posts.ts");
-run("Rendering digest", "npx tsx scripts/render_digest.ts");
+run("Collecting posts (Zenn + Qiita + Note)", "npx tsx scripts/collect_posts.ts");
+run("Scoring & filtering",                    "npx tsx scripts/score_posts.ts");
+run("Rendering markdown digest",              "npx tsx scripts/render_digest.ts");
+run("Rendering web JSON",                     "npx tsx scripts/render_web.ts");
 
 if (process.env.NOTION_API_KEY) {
   run("Syncing to Notion", "npx tsx scripts/sync_to_notion.ts");

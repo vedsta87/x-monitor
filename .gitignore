@@ -4,3 +4,5 @@ dist/
 .env.local
 data/raw/*.json
 data/processed/*.json
+web/.next/
+web/out/
